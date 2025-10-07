@@ -1,0 +1,1405 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" href="{{ asset('Sweetalerts/sweetalert2.min.css') }}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<style>
+    .highlight {
+        background: linear-gradient(90deg, rgba(98, 191, 117, 0.1), rgba(98, 191, 117, 0.05));
+        border-radius: 6px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        /* margin-bottom: 15px; */
+    }
+
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    input[type="text"] {
+        padding: 10px 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    textarea {
+        padding: 10px 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+        max-width: 200px;
+        margin-left: 5px;
+    }
+
+    textarea:focus {
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .inline-input {
+        display: inline-block;
+        width: auto;
+        min-width: 100px;
+        margin-left: 5px;
+    }
+
+    label {
+        font-weight: 400;
+        color: #4a5568;
+        margin-bottom: 1px;
+        display: block;
+    }
+
+    .label1 {
+        font-weight: 400;
+        color: #4a5568;
+        margin-bottom: 1px;
+        display: block;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .section {
+        margin-bottom: 10px;
+        background: #f1fbef;
+        border-radius: 12px;
+        padding: 25px;
+        border-left: 4px solid #418a68;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .col {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .inline-input {
+        display: inline-block;
+        width: auto;
+        min-width: 100px;
+        margin-left: 5px;
+    }
+
+    .col h5 {
+        color: #2d3748;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+        border-bottom: 2px solid #a2f4b0;
+        padding-bottom: 8px;
+        margin-top: 15px;
+    }
+
+    .subsection {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #a2f4b0;
+    }
+
+    .subsection h6 {
+        color: #418a68;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        /* border-bottom: 1px solid #e2e8f0; */
+    }
+
+    th {
+        background: linear-gradient(135deg, #126328 0%, rgb(103, 156, 37) 100%);
+        color: white;
+        font-weight: 500;
+    }
+
+    td input[type="text"] {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .flexdiv {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .flexdiv1 {
+        display: flex;
+        gap: 10px;
+        margin: 8px;
+        align-items: center;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #2E7D32, #43A047);
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 1px;
+        padding: 10px 0;
+        border-radius: 12px;
+        margin: 20px 0;
+
+    }
+
+    .header h1 {
+        font-size: 1.9em;
+        font-weight: 400;
+    }
+
+    .inline_row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    input:disabled,
+    textarea:disabled {
+        background-color: #f0f0f0;
+        color: #999;
+        cursor: not-allowed;
+    }
+
+    .percentagediv {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .error-field {
+        border: 2px solid red !important;
+        outline: none !important;
+    }
+    @media (max-width: 768px) {
+        .container {
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .row {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+</style>
+
+<form id="shoulder_elbow">
+    <input type="hidden" value="{{ optional($patDetails)->PATIENT_NAME }}" id="patient_name">
+    <input type="hidden" value="{{ optional($patDetails)->REG_NO }}" id="regno">
+    <input type="hidden" value="{{ optional($patDetails)->age }}" id="age">
+    <input type="hidden" value="{{ optional($patDetails)->SEX }}" id="sex">
+    <div>
+        <div class="header">
+            <h1>SHOULDER & ELBOW</h1>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="row">
+            <div class="col">
+                <h5>Chief Complaint</h5>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="" value="Pain">
+                        <label for="">Pain</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="" value="Swelling">
+                        <label for="">Swelling</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="" value="Pain">
+                        <label for="">Limitation of Movements </label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="" value="Pain">
+                        <label for="">Instability</label>
+                    </div>
+                </div>
+                <div class="form-group " data-group="Side" data-exclusive="true">
+                    <h5>Side:</h5> 
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Side" value="Right">
+                            <label for="">Right</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Side" value="Left">
+                            <label for="">Left</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Side" value="Both">
+                            <label for="">Both</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5>Symptoms Duration:</h5>
+                    <div class="form-group">
+                        <textarea name="Symptoms_Duration" placeholder="Symptoms Duration"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <h5>Onset:</h5>
+                    <div class="checkbox-group" data-group="Onset" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Onset" value="Insidious">
+                            <label for="">Insidious</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Onset" value="Sudden">
+                            <label for="">Sudden</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5>Radiation:</h5>
+                    <div class="checkbox-group" data-group="Radiation" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Radiation" value="Base_of_shoulder_axilla">
+                            <label for="">Base of shoulder axilla</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Radiation" value="Outer_aspect_of_upper_arm">
+                            <label for="">Outer aspect of upper arm</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5>Character:</h5>
+                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Throbbing</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Pricking</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5>Aggravating factors:</h5>
+                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Exercise</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Strenuous activity</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Overhead activities</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Walking</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Running</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group mt-3">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Others</label>
+                        </div>
+                        <input type="text" placeholder="Specify others" name="Incontinence">
+                    </div>
+                        
+                </div>
+                <div>
+                    <h5>Relieving factors:</h5>
+                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Rest</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Medication</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Lying down</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Others</label>
+                        </div>
+                        <input type="text" placeholder="Specify others" name="">
+                        
+                    </div>
+                </div>
+
+                <div class="form-group" data-group="Injections" data-exclusive="true">
+                    <h5>Relation to trauma:</h5>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="ESI">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="Trigger" data-target="#input4">
+                            <label for="">Yes</label>
+                        </div>
+                        <input type="text" placeholder="Specify Relation to trauma">
+                    </div>
+                </div>
+                <div>
+                    <h5>Any H/O fever:</h5>
+                    <div class="checkbox-group" data-group="Any_H/O_fever" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Any_H/O_fever" value="Yes">
+                            <label for="">Yes</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Any_H/O_fever" value="No">
+                            <label for="">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5>Instability:</h5>
+                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Voluntary</label>
+                        </div>
+                       <div class="checkbox-item" style="margin-left:45px">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Disvoluntary</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Character" value="Throbbing">
+                            <label for="">Onset</label>
+                        </div>
+                       <div class="checkbox-item" style="margin-left:70px;">
+                            <input type="checkbox" name="Character" value="Pricking">
+                            <label for="">Duration</label>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap:10px;align-items:center">
+                        <input type="checkbox">
+                        <label for="">Associated Movements:</label>
+                        <input type="text" style="margin-bottom:5px;">
+                    </div>
+                    
+
+                    <div style="display: flex; gap:10px;align-items:center">
+                        <input type="checkbox">
+                        <label for="">How Frequent:</label>
+                        <input type="text" style="margin-left: 66px;margin-bottom:5px;">
+                    </div>
+                    <div style="display: flex; gap:10px;align-items:center">
+                        <input type="checkbox">
+                        <label for="">No of Dislocation:</label>
+                        <input type="text" style="margin-left:44px;">
+                    </div>
+                </div>
+
+                <div>
+                    <h5>Pain Severity</h5>
+                    <div class="checkbox-group" data-group="Tanner_stage" data-exclusive="true">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="1">
+                            <label for="">1</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="2">
+                            <label for="">2</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="3">
+                            <label for="">3</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="4">
+                            <label for="">4</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="5">
+                            <label for="">5</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="1">
+                            <label for="">6</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="2">
+                            <label for="">7</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="3">
+                            <label for="">8</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="4">
+                            <label for="">9</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Tanner_stage" value="5">
+                            <label for="">10</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>Prior Treatment Attempted:</h5>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="ESI">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="Trigger" data-target="#input4">
+                            <label for="">Yes</label>
+                        </div>
+                        <input type="text" placeholder="Prior Treatment Attempted">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>Shoulder dislocation:</h5>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="ESI">
+                            <label for="">Any</label>
+                        </div>
+                        <input type="text" placeholder="Specify Any">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5>Pain is worst in:</h5>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="ESI">
+                            <label for="">Morning</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="ESI">
+                            <label for="">Night</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5>Activity of daily living:</h5>
+                    <div class="form-group">
+                        <textarea name="Symptoms_Duration" placeholder="Activity of daily living"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <h5>Patient had Similiar complaint in the Past:</h5>
+                    <div class="form-group">
+                        <textarea name="Symptoms_Duration" placeholder="Specify complaint"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <h5>Other Complaints</h5>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <label>Fatigue:</label>
+                            <input type="checkbox" name="Injections" value="ESI">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Injections" value="Trigger" data-target="#input4">
+                            <label for="">Yes</label>
+                        </div>
+                        <input type="text" placeholder="Prior Treatment Attempted">
+                    </div>
+                </div>
+                <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;">
+                    <div>
+                        <label for="" class="label1">Bladder:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Bladder">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Bowel:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Bowel">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Fever:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Fever">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Weight loss:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Weight loss">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Weight gain:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Weight gain">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Loss of Appetite:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Loss of Appetite">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Others:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Others">
+                    </div>
+                    
+                </div>
+                <h5>Personal History</h5>
+                <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;">
+                    <div>
+                        <label for="" class="label1">Alcohol:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Alcohol">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Smoking:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Smoking">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Job:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Job">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Sports:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Sports">
+                    </div>
+                    <div>
+                        <label for="" class="label1">Others:</label>
+                        <input type="text" class="inline-input" placeholder="Describe Others">
+                    </div>
+                </div>
+                <div>
+                    <h5>Past Medical History</h5>
+                    <table style="box-shadow: none;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="">Hypertension :</label>
+                                </td>
+                                <td>
+                                    <div class="checkbox-item">
+                                        <label for="" class="label1">Since:</label>
+                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Thyroid :</label>
+                                </td>
+                                <td>
+                                    <div class="checkbox-item">
+                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <label for="" class="label1">years ago</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Diabetics :</label>
+                                </td>
+                                <td>
+                                    <div class="checkbox-item">
+                                        <label for="" class="label1">Since:</label>
+                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Tuberculosis :</label>
+                                </td>
+                                <td>
+                                    <div class="checkbox-item">
+                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <label for="" class="label1">years ago</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="" style="display:flex;gap:180px;">
+                                        <label for="" class="label1" style="font-weight:bold;">Type Of Disorder</label>
+                                        <label for="" class="label1" style="font-weight:bold;">Duration</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Heart Disorder :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Liver Disease :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Renal Problem :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Gastro - Enterology :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Respiratory :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Neurology :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Previous Surgery :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Previous Surgery 1 :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Others :</label>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items:center;gap:10px;">
+                                        <input type="text">
+                                        <label for="">Since:</label>
+                                        <input type="text">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="showregion">
+        <div class="row">
+            <div class="col">
+                <div style="display: flex;align-items: center;justify-content: center;gap: 10px;">
+                    <label for="" style="font-weight: 700;font-size:20px;">Regional Examination - </label>
+                    <input type="checkbox" onchange="toggleregion(this, 'should')" id="shouldcheck">
+                    <label for="" style="font-weight: 700;font-size:20px;">Shoulder</label>
+                    <input type="checkbox" onchange="toggleregion(this, 'elb')" id="elbcheck">
+                    <label for="" style="font-weight: 700;font-size:20px;">Elbow</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="should" style="display:none;">
+       <div class="row">
+        <div class="col">
+            <div id="Inspectionshould">
+                <h5>Inspection</h5>
+                <div class="form-group">
+                    <textarea name="Inspection" placeholder="Specify Inspection"></textarea>
+                </div>
+            </div>
+            <div>
+                <h6 style="margin-top: 10px;">Skin:</h6>
+                <div class="form-group">
+                    <textarea name="Skin" placeholder="Specify Skin"></textarea>
+                </div>
+            </div>
+            <div>
+                <h6 style="margin-top: 10px;">Sweeling:</h6>
+                <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="Sweeling" value="No">
+                        <label for="">No</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="Sweeling" value="Yes">
+                        <label for="">Yes</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h6 style="margin-top: 10px;">Asymmetry:</h6>
+                <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="Sweeling" value="No">
+                        <label for="">No</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="Sweeling" value="Yes">
+                        <label for="">Yes</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h6 style="margin-top: 10px;">Specific Finding:</h6>
+                <div class="form-group">
+                    <textarea name="Skin" placeholder="Specify Specific Finding"></textarea>
+                </div>
+            </div>
+            <h5>Palpation:</h5>
+            <div style="display: flex;gap:10px; flex-wrap: wrap;" data-title="Palpation:">
+                <div data-group="Anteriorly">
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="anteriorly" value="checkbox" data-target="#input1">
+                        <label for="">Anteriorly</label>
+                    </div>
+                    <textarea  placeholder="Describe Anteriorly" disabled id="input1" name="Anteriorly"></textarea>
+                </div>
+                <div data-group="Lateral_Aspect">
+                    <div class="checkbox-item">
+                        <input type="checkbox"  data-target="#input2" name="LateralAspect" value="checkbox">
+                        <label for="">Lateral Aspect</label>
+                    </div>
+                    <textarea  placeholder="Describe Lateral Aspect" disabled id="input2" name="Lateral_Aspect"></textarea>
+                </div>
+                <div data-group="Posteriorly">
+                    <div class="checkbox-item">
+                        <input type="checkbox"  data-target="#input3" name="posteriorly" value="checkbox">
+                        <label for="">Posteriorly</label>
+                    </div>
+                    <textarea  placeholder="Describe Bending" disabled id="input3" name="Posteriorly"></textarea>
+                </div>
+            </div>
+            <h5>Movements</h5>
+            <table style="box-shadow:none;">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Active</th>
+                        <th>Passive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flexion:</td>
+                        <td><input type="text" name="Flexion_active"></td>
+                        <td><input type="text" name="Flexion_passive"></td>
+                    </tr>
+                    <tr>
+                        <td>Extension:</td>
+                        <td><input type="text" name="Extension_active"></td>
+                        <td><input type="text" name="Extension_passive"></td>
+                    </tr>
+                    <tr>
+                        <td>Internal Rotation(IR):</td>
+                        <td><input type="text" name="IR_active"></td>
+                        <td><input type="text" name="IR_passive"></td>
+                    </tr>
+                    <tr>
+                        <td>External Rotation (ER):</td>
+                        <td><input type="text" name="ER_active"></td>
+                        <td><input type="text" name="ER_passive"></td>
+                    </tr>
+                    <tr>
+                        <td>Adduction:</td>
+                        <td><input type="text" name="Adduction_active"></td>
+                        <td><input type="text" name="Adduction_passive"></td>
+                    </tr>
+                    <tr>
+                        <td>Abduction:</td>  
+                        <td><input type="text" name="Abduction_active"></td>
+                        <td><input type="text" name="Abduction_passive"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5>Other Findings:</h5>
+            <div>
+                <div class="form-group">
+                    <textarea name="" placeholder="Specify Other Findings"></textarea>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col">
+            <h5>Special Test</h5>
+            <table style="width:85%;box-shadow:none;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="
+                            text-align:center;
+                            font-weight:bold;
+                            background: linear-gradient(135deg, #126328 0%, rgb(103, 156, 37) 100%);
+                            color: white;
+                            font-weight: 500;">Rotator Cuff Pathology :</td>
+                    </tr>
+                    <tr>
+                        <td>Neer's Impingement Sign :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td>Neer's Impingement Test :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td>Hawkins - Kennedy Test :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td>Drop Arm Test :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td>Herber's Test :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td>Jobe's Test :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td>Test for Infraspinatus & Teres Minor :</td>
+                        <td><input type="text" name=""></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="
+                            text-align:center;
+                            font-weight:bold;
+                            background: linear-gradient(135deg, #126328 0%, rgb(103, 156, 37) 100%);
+                            color: white;
+                            font-weight: 500;
+                            border-radius: 10px 10px 0 0;">Test for Shoulder Instability :</td>
+                    </tr>
+                    <tr>
+                        <td>Anterior Instability :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Apprehension Test :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Relocation Test (Jobe's) :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Sulcus Sign :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="
+                            text-align:center;
+                            font-weight:bold;
+                            background: linear-gradient(135deg, #126328 0%, rgb(103, 156, 37) 100%);
+                            color: white;
+                            font-weight: 500;
+                            border-radius: 10px 10px 0 0;">Other System Examination :</td>
+                    </tr>
+                    <tr>
+                        <td>Central Nervous System(CNS) :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Cardiovascular System(CVS) :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Respiratory System(RS) :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Spine : Neurology :</td>
+                        <td><input type="text"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5>Proposed Diagnosis :</h5>
+            <textarea  placeholder="Describe Proposed Diagnosis" style="max-width: 65%;height:65px;" name="Proposed_Diagnosis"></textarea>
+
+        </div>
+       </div>
+       <div style="display: flex;justify-content:center;margin-top:20px;">
+            <button type="submit" class="btn btn-success" style="font-size: 25px;width: 200px;">Save</button>
+        </div>
+    </div>
+    <div class="section" id="elb" style="display:none;">
+        <div class="row">
+            <div class="col">
+                <h5>Inspection :</h5>
+                <table style="width: 80%;box-shadow:none;" id="Inspectionelb">
+                    <thead>
+                        <tr>
+                            <td colspan="2" style="
+                            text-align:center;
+                            font-weight:bold;
+                            background: linear-gradient(135deg, #126328 0%, rgb(103, 156, 37) 100%);
+                            color: white;
+                            font-weight: 500;">Attitude :</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>From Front :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>From Lateral Aspect :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>From Medical Aspect :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Posterior Aspect :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Skin :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Swelling :</td>
+                            <td>
+                                <div class="checkbox-group" data-group="" data-exclusive="true">
+                                    <div class="checkbox-item">
+                                            <input type="checkbox" name="Swelling" value="Yes">
+                                            <label for="">Yes</label>
+                                        </div>
+                                    <div class="checkbox-item">
+                                            <input type="checkbox" name="Swelling" value="No">
+                                        <label for="">No</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Asymmetry :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Palpation :</h5>
+                <div class="form-group">
+                    <textarea name="" placeholder="Symptoms Palpation"></textarea>
+                </div>
+                <div>
+                    <h6 style="margin-top: 10px;">Three Point Relation Ship:</h6>
+                    <div class="checkbox-group" data-group="Three_Point_Relation_Ship" data-exclusive="true">
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Three_Point_Relation_Ship" value="Normal">
+                            <label for="">Normal</label>
+                        </div>
+                       <div class="checkbox-item">
+                            <input type="checkbox" name="Three_Point_Relation_Ship" value="Altered">
+                            <label for="">Altered</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h5>Movements :</h5>
+                <table style="width:75%;box-shadow:none;">
+                    <tbody>
+                        <tr>
+                            <td>Flexion :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Extension :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Hyper Extension :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Supination :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Pronation :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Special Test :</h5>
+                <table style="box-shadow:none;width:75%;">
+                    <tbody>
+                        <tr>
+                            <td style="width:41%;">Varus Stress Test :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:41%;">Valgus Stress Test :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:41%;">Pivot Shift Test :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:41%;">Test for Lateral Epicondylitis :</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Other System Examination :</h5>
+                <textarea  placeholder="Describe Other System Examination" style="max-width: 65%;height:65px;" name=""></textarea>
+                <h5>Diagnosis :</h5>
+                <textarea  placeholder="Describe Diagnosis" style="max-width: 65%;height:65px;" name=""></textarea>
+            </div>
+        </div>
+        <div style="display: flex;justify-content:center;margin-top:20px;">
+            <button type="submit" class="btn btn-success" style="font-size: 25px;width: 200px;">Save</button>
+        </div>
+    </div>
+    
+</form>
+<script src="{{ asset('Sweetalerts/sweetalert2.all.min.js') }}"></script>
+@php
+$regnos= optional($patDetails)->REG_NO;
+    $currentRecord = \App\Models\Opdpart::select('data','regno')
+    ->where('type', 'spinal_deformity')
+    ->where('regno',$regnos)
+        ->whereDate('created_at', \Carbon\Carbon::today())
+        ->latest()
+        ->first();
+@endphp
+<script>
+    const allergyData = @json($allergy_data);
+    let formDataFromDB = @json($currentRecord->data ?? []);
+    if (!Object.entries) {
+        Object.entries = function (obj) {
+            return Object.keys(obj).map(function (key) {
+                return [key, obj[key]];
+            });
+        };
+    }
+    //polyfill for css escape (for Safari < 10.1)
+    if (!CSS.escape) {
+        CSS.escape = function(value) {
+            return value.replace(/[^a-zA-Z0-9_-]/g, function(char) {
+                return '\\' + char;
+            });
+        };
+    }
+    function toggleregion(checkbox, regionId, suppressScroll = false) {
+        let section = document.getElementById(regionId);
+
+        if (checkbox.checked && regionId === 'should') {
+            section.style.display = "block";
+            document.getElementById('elb').style.display = "none";
+            document.getElementById('elbcheck').checked = false;
+
+            if (!suppressScroll) {
+                document.getElementById('Inspectionshould').scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }
+
+        } else if (checkbox.checked && regionId === 'elb') {
+            section.style.display = "block";
+            document.getElementById('should').style.display = "none";
+            document.getElementById('shouldcheck').checked = false;
+
+            if (!suppressScroll) {
+                document.getElementById('Inspectionelb').scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }
+
+        } else {
+            section.style.display = "none";
+        }
+    }
+
+    document.querySelectorAll('[data-group]').forEach(function (group) {
+        var checkboxes = group.querySelectorAll('input[type="checkbox"]');
+        var isExclusive = group.dataset && group.dataset.exclusive === "true";
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                var target = checkbox.dataset.target;
+                var relatedInput = target ? document.querySelector(target) : null;
+
+                // Exclusive group: uncheck others
+                if (isExclusive && checkbox.checked) {
+                    checkboxes.forEach(function (cb) {
+                        if (cb !== checkbox) {
+                            cb.checked = false;
+
+                            // Disable related input if any
+                            var cbTarget = cb.dataset.target;
+                            if (cbTarget) {
+                                var cbInput = document.querySelector(cbTarget);
+                                if (cbInput) {
+                                    cbInput.disabled = true;
+                                    cbInput.value = '';
+                                    cbInput.classList.remove("error-field");
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // For any checkbox, handle its own related input
+                if (relatedInput) {
+                    if (checkbox.checked) {
+                        relatedInput.disabled = false;
+                    } else {
+                        relatedInput.disabled = true;
+                        relatedInput.value = '';
+                        relatedInput.classList.remove("error-field");
+                    }
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
+        input.addEventListener('change', function () {
+            input.value = input.value.trim();
+        });
+    }); 
+    document.getElementById('shoulder_elbow').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var json = getFormDataAsJSON(this); // <-- works because 'this' is the form
+        if (!json) return;
+
+        $.ajax({
+            url: '{{ route('save.shoulder.elbow.details') }}',
+            type: 'POST',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message || 'Form submitted successfully!',
+                    confirmButtonText: 'OK'
+                }).then(function () {
+                    window.location.reload();
+                });
+            },
+            error: function (xhr) {
+                var message = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Something went wrong!';
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: message
+                });
+            }
+        });
+    });
+
+    function getFormDataAsJSON(formElement) {
+        var formData = new FormData(formElement);
+        var json = {};
+        var hasValue = false;
+
+        for (var pair of formData.entries()) {
+            var key = pair[0];
+            var value = pair[1];
+            if (!value) continue;
+
+            var inputEl = formElement.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(value) + '"]') 
+                || formElement.querySelector('[name="' + CSS.escape(key) + '"]');
+
+            if (inputEl && inputEl.type === "checkbox" && inputEl.dataset.target) {
+                var relatedInput = document.querySelector(inputEl.dataset.target);
+                if (relatedInput && !relatedInput.value.trim()) {
+                    var errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Required Field Missing',
+                        text: (errorname || 'This field') + ' is required.',
+                    }).then(function () {
+
+                        // Detect which section it belongs to and open it (without scroll)
+                        if (relatedInput.closest('#should')) {
+                            document.getElementById('shouldcheck').checked = true;
+                            toggleregion(document.getElementById('shouldcheck'), 'should', true);
+                        } else if (relatedInput.closest('#elb')) {
+                            document.getElementById('elbcheck').checked = true;
+                            toggleregion(document.getElementById('elbcheck'), 'elb', true);
+                        }
+                        // Scroll to input
+                        relatedInput.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+                        // Highlight with red border
+                        relatedInput.classList.add("error-field");
+
+                        relatedInput.addEventListener("input", function handler() {
+                            relatedInput.classList.remove("error-field");
+                            relatedInput.removeEventListener("input", handler);
+                        });
+                    });
+                    return null;
+                }
+            }
+
+            var title = null;
+            var groupDiv = inputEl ? inputEl.closest('[data-title]') : null;
+            if (groupDiv) {
+                title = groupDiv.getAttribute('data-title');
+            }
+            hasValue = true;
+
+            // Store values with title if available
+            if (title) {
+                if (!json[key]) {
+                    json[key] = {
+                        title: title,
+                        values: []
+                    };
+                }
+                json[key].values.push(value);
+            } else {
+                if (json[key] === undefined) {
+                    json[key] = value;
+                } else {
+                    json[key] = [].concat(json[key], value);
+                }
+            }
+        }
+
+        var patientName = document.getElementById('patient_name') ? document.getElementById('patient_name').value.trim() : '';
+        var regno = document.getElementById('regno') ? document.getElementById('regno').value.trim() : '';
+        var age = document.getElementById('age') ? document.getElementById('age').value.trim() : '';
+        var sex = document.getElementById('sex') ? document.getElementById('sex').value.trim() : '';
+
+        if (!hasValue) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No fields selected!',
+                text: 'Please select at least one field and fill in related values if required.',
+            });
+            return null;
+        }
+        json.name = patientName;
+        json.regno = regno;
+        json.age = age;
+        json.sex = sex;
+        json.allergies = allergyData;
+        json.consultant = "Dr.sivamurugan";
+        json.type = "shoulder_elbow";
+        return json;
+    }
+</script>

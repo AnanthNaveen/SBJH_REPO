@@ -1,0 +1,50 @@
+/* Custom date picker style */
+.datepicker
+{
+    font-family: sans-serif !important;
+    padding:5px;
+}
+/* Header (month and year) */
+.datepicker-days .datepicker-switch,
+.datepicker-days .prev,
+.datepicker-days .next {
+    background-color: #D6E5D5;
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    border:1px solid white;
+}
+
+/* Hover effect on header buttons */
+.datepicker-days .datepicker-switch:hover,
+.datepicker-days .prev:hover,
+.datepicker-days .next:hover {
+    background-color: #0f5223;
+}
+
+/* Day numbers (default state) */
+.datepicker-days td.day {
+    color: #555; /* grey text */
+}
+
+/* Day hover */
+.datepicker-days td.day:hover {
+    background-color: #f2f2f2;
+    color: #126328;
+    cursor: pointer;
+}
+
+/* Selected day */
+.datepicker-days td.active,
+.datepicker-days td.active:hover {
+    background-color: #126328 !important;
+    color: white !important;
+}
+
+/* Today’s day (highlight) */
+.datepicker-days td.today {
+    background-color: #e6f2e6 !important;
+    color: #126328 !important;
+    border-radius: 50%;
+}
