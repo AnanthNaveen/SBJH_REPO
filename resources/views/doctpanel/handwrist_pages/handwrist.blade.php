@@ -829,6 +829,7 @@
 
     const allergyData = @json($allergy_data);
     let formDataFromDB = @json($currentRecord->data ?? []);
+<<<<<<< HEAD
 
     document.addEventListener('DOMContentLoaded', function () {
         populateForm(document.getElementById('handandwrist'), formDataFromDB);
@@ -846,6 +847,32 @@
                         var targetemp = form.querySelector(temp);
                         if (targetemp) {
                             targetemp.disabled = false;
+=======
+        document.addEventListener('DOMContentLoaded', () => {
+            populateForm(document.getElementById('handandwrist'), formDataFromDB);
+        });
+
+        function populateForm(form, data) {
+            Object.entries(data).forEach(([key, field]) => {
+                if (field?.values) {
+                    // Fill checkboxes or multi-selects
+                    field.values.forEach(val => {
+                        let checkbox = form.querySelector(`[name="${key}"][value="${val}"]`);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                            let temp = checkbox.dataset.target;
+                            let targetemp = form.querySelector(temp);
+                            if (targetemp) {
+                                targetemp.disabled = false;
+                            }
+                        }
+                    });
+                    // If it's a single value and not a checkbox
+                    if (field.values.length === 1) {
+                        let input = form.querySelector(`[name="${key}"]`);
+                        if (input && input.type !== 'checkbox') {
+                            input.value = field.values[0];
+>>>>>>> 3e69164 (hand and wrist page script changes)
                         }
                     }
                 });
