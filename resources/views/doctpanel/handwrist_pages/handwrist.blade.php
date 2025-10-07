@@ -254,9 +254,9 @@
     <div class="section">
         <div class="row">
             <div class="col">
-                <div class="form-group" data-group="dominant-hand" data-exclusive="true">
+                <div class="form-group" data-group="dominant-hand" data-exclusive="true" data-title="dominant-hand">
                     <h5><b>Dominant Hand :</b></h5>
-                    <div class="checkbox-group" data-title="dominant-hand">
+                    <div class="checkbox-group" >
                         <div class="checkbox-item">
                             <input type="checkbox" name="dominant_hand" value="Right">
                             <label for="">Right</label>
@@ -267,9 +267,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <h5><b>Chief Complaints :</b></h5>
-                    <div class="checkbox-group" data-title="chief complaints">
+                    <div class="checkbox-group" data-title="Chief Complaints">
                         <div class="checkbox-item">
                             <input type="checkbox" name="chief_complaints" value="Pain">
                             <label for="">Pain</label>
@@ -283,14 +283,14 @@
                             <label for="">Deformity</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="cheif_complaints" value="Loss Of Function">
+                            <input type="checkbox" name="chief_complaints" value="Loss of Function">
                             <label for="">Loss Of Function</label>
                         </div>
                     </div>
                 </div>
-                <div class="form-group" data-group="side" data-exclusive="true">
+                <div class="form-group" data-group="Side" data-exclusive="true">
                     <h5><b>Side:</b></h5>
-                    <div class="checkbox-group" data-title="side">
+                    <div class="checkbox-group" data-title="Side">
                         <div class="checkbox-item">
                             <input type="checkbox" name="side" value="Right">
                             <label for="">Right</label>
@@ -316,7 +316,7 @@
                 </div>       
                 <div class="form-group">
                 <h5><b>Onset:</b></h5>
-                    <div class="checkbox-group" data-title="onset">
+                    <div class="checkbox-group" data-title="Onset">
                         <div class="checkbox-item">
                             <input type="checkbox" name="onset" value="Insidious">
                             <label for="">Insidious</label>
@@ -329,7 +329,7 @@
                 </div>
                 <div class="form-group">
                     <h5><b>Character Of Pain:</b></h5>
-                    <div class="checkbox-group" data-title="character pain">
+                    <div class="checkbox-group" data-title="Character Pain">
                         <div class="checkbox-item">
                             <input type="checkbox" name="character_pain" value="Throbbing">
                             <label for="">Throbbing</label>
@@ -342,7 +342,7 @@
                 </div>
                 <div>
                     <h5><b>Aggravating Factors</b></h5>
-                    <div class="checkbox-group" data-group="Aggravating_factors" data-title="Aggravating_factors">
+                    <div class="checkbox-group" data-group="Aggravating_factors" data-title="Aggravating Factors">
                         <div class="checkbox-item" >
                             <input type="checkbox" name="Aggravating_factors" value="Exercise">
                             <label for="">Exercise</label>
@@ -364,14 +364,15 @@
                             <label for="">Running</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Aggravating_factors" value="Others">
+                            <input type="checkbox" name="Aggravating_factors" value="Others" data-target="#input1">
                             <label for="">Others</label>
+                            <input type="text" class="inline-input"  name="Aggravating_factors_other" id="input1" disabled>
                         </div>
                     </div>
                 </div>
                 <div>
                     <h5><b>Relieving Factors</b></h5>
-                    <div class="checkbox-group" data-group="Relieving factors" data-title="Relieving factors">
+                    <div class="checkbox-group" data-group="Relieving factors" data-title="Relieving Factors">
                         <div class="checkbox-item">
                             <input type="checkbox" name="relieving_factors" value="Rest">
                             <label for="Aggravating_factors">Rest</label>
@@ -385,8 +386,9 @@
                             <label for="">Lying Down</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="relieving_factors" value="Others">
+                            <input type="checkbox" name="relieving_factors" value="Others" data-target="#input2">
                             <label for="">Others</label>
+                            <input type="text" class="inline-input"  name="relieving_factors_others" id="input2" disabled>
                         </div>
                     </div>
                 </div>
@@ -397,18 +399,17 @@
                         <label for="">Yes</label>
                         <input type="checkbox" name="relation_to_trauma" value="No">
                         <label for="">No</label>
-                       
                     </div>
                 </div>
-                <div class="checkbox-group mt-3" data-group="his_fever" data-exclusive="true">
-                    <div class="checkbox-item" data-title="his_fever" >
+                <div class="checkbox-group mt-3" data-group="History Of Fever" data-exclusive="true">
+                    <div class="checkbox-item" data-title="History Of Fever" >
                         <label for="" class="label1">Any H/O Of Fever:</label>
-                        <input type="checkbox" name="his_fever" value="Yes">
+                        <input type="checkbox" name="history_of_feveryes" value="Yes" data-target="#input3">
                         <label for="">Yes</label>
-                        <input type="text" class="inline-input" name="hisfeveryes">
-                        <input type="checkbox" name="his_fever" value="No">
+                        <input type="text" class="inline-input" name="history_fever_yes" id="input3" disabled>
+                        <input type="checkbox" name="history_of_feverno" value="No" data-target="#input4">
                         <label for="">No</label>
-                        <input type="text" class="inline-input" name="hisfeverno">
+                        <input type="text" class="inline-input" name="history_fever_no" id="input4" disabled>
                     </div>
                 </div>
                 <div class="checkbox-group mt-3" data-title="Pain Severity">
@@ -423,7 +424,7 @@
                         <input type="text" class="inline-input" placeholder="" name="treatment_attempted">
                     </div>
                 </div>
-                <div class="checkbox-group mt-3" data-title="pain worst">
+                <div class="checkbox-group mt-3" data-title="Pain Worst">
                     <div class="checkbox-item">
                         <label for="" class="label1">Pain Worst In :</label>
                         <input type="text" class="inline-input" placeholder="" name="pain_worst">
@@ -431,33 +432,34 @@
                 </div>
                 <div class="checkbox-group mt-3" data-title="Activities Of Daily Living">
                     <div class="checkbox-item">
-                        <label for="" class="label1">Activities Of Daily Living:</label>
+                        <label for="" class="label1">Activities Of daily living:</label>
                         <input type="text" class="inline-input" placeholder="" name="activities_daily_living">
                     </div>
                 </div>
-                <div class="checkbox-group mt-3" data-title="patient complaints in past">
+                <div class="checkbox-group mt-3" data-title="Patient Complaints in Past">
                     <div class="checkbox-item">
-                        <label for="" class="label1">Patient Had Similiar Complaints In The Past:</label>
+                        <label for="" class="label1">Patient had similiar complaints in the Past:</label>
                         <input type="text" class="inline-input" placeholder="" name="patient_complaints_past">
                     </div>
                 </div>
                 <div>
                     <h5><b>Other Complaints</b></h5>
-                    <div class="checkbox-group" data-group="fatigue" data-title="fatigue" data-exclusive="true">
+                    <div class="checkbox-group" data-group="Fatigue" data-title="Fatigue" data-exclusive="true">
                         <div class="checkbox-item">
                             <label>Fatigue:</label>
                             <input type="checkbox" name="fatigue" value="No">
                             <label for="">No</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="fatigue" value="Yes" data-target="#input4">
+                            <input type="checkbox" name="fatigue" value="Yes" data-target="#input5">
                             <label for="">Yes</label>
+                            <input type="text" name="fatigue_yes" id="input5" disabled>
                         </div>
-                        <input type="text" name="fatigue_yes">
+                      
                     </div>
                 </div>
                 <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;" data-group="Other Complaint" data-title="Other Complaint">
-                    <div>
+                    <div data-title="Bladder" >
                         <label for="" class="label1">Bladder:</label>
                         <input type="text" class="inline-input" placeholder="Describe Bladder"  name="bladder">
                     </div>
@@ -488,7 +490,7 @@
                 </div>
             </div>
             <div class="col">  
-                <div>
+                <div data-group="past medical history" data-title="Other Complaint" >
                     <h5><b>Past Medical History</b></h5>
                     <table class="modified_table">
                         <tbody>
@@ -733,10 +735,10 @@
                 <h5><b>Special Test:</b></h5>
                 <div class="form-group mt-3">
                     <div class="ms-3 mb-2"><b>Carpal Tunnel Tests:</b></div>
-                    <table style="width: 55%;" class="modified_table">
+                    <table style="width: 65%;" class="modified_table">
                         <tbody>
                             <tr data-group="tinel_sign" data-exclusive="true">
-                                <td><li class="ms-1">Tinel's Sign:</li></td>
+                                <td><li class="ms-1"> Tinel's Sign:</li></td>
                                 <td>
                                     <div class="checkbox-item" data-title="Tinel Sign">
                                         <input type="text" class="form-control form-control-sm test-input" name="tinel_sign">
@@ -751,10 +753,10 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr data-group="Durkan Compression Test" data-exclusive="true" data-title="Durkan Compression Test">
+                            <tr data-group="Durkan Compression Test" data-exclusive="true">
                                 <td><li class="ms-1">Durkans Compression Test:</li></td>
                                 <td>
-                                    <div class="checkbox-item">
+                                    <div class="checkbox-item" data-title="Durkans Compression Test">
                                         <input type="text" class="form-control form-control-sm test-input" name="Durkan_Compression_Test">
                                     </div>
                                 </td>
@@ -799,67 +801,93 @@
 </form>
 <script src="{{ asset('Sweetalerts/sweetalert2.all.min.js') }}"></script>
 @php
-$regnos= optional($patDetails)->REG_NO;
+    $regnos = optional($patDetails)->REG_NO;
     $currentRecord = \App\Models\Opdpart::select('data','regno')
         ->where('type', 'hand_wrist')
-        ->where('regno',$regnos)
+        ->where('regno', $regnos)
         ->whereDate('created_at', \Carbon\Carbon::today())
         ->latest()
         ->first();
 @endphp
 <script>
+    // Polyfill for Object.entries (for Safari < 10.1)
+    if (!Object.entries) {
+        Object.entries = function (obj) {
+            return Object.keys(obj).map(function (key) {
+                return [key, obj[key]];
+            });
+        };
+    }
+    //polyfill for css escape (for Safari < 10.1)
+    if (!CSS.escape) {
+        CSS.escape = function(value) {
+            return value.replace(/[^a-zA-Z0-9_-]/g, function(char) {
+                return '\\' + char;
+            });
+        };
+    }
+
     const allergyData = @json($allergy_data);
     let formDataFromDB = @json($currentRecord->data ?? []);
-        document.addEventListener('DOMContentLoaded', () => {
-            populateForm(document.getElementById('handandwrist'), formDataFromDB);
-        });
 
-        function populateForm(form, data) {
-            Object.entries(data).forEach(([key, field]) => {
-                if (field?.values) {
-                    // Fill checkboxes or multi-selects
-                    field.values.forEach(val => {
-                        let checkbox = form.querySelector(`[name="${key}"][value="${val}"]`);
-                        if (checkbox) {
-                            checkbox.checked = true;
-                            let temp = checkbox.dataset.target;
-                            let targetemp = form.querySelector(temp);
-                            if (targetemp) {
-                                targetemp.disabled = false;
-                            }
-                        }
-                    });
-                    // If it's a single value and not a checkbox
-                    if (field.values.length === 1) {
-                        let input = form.querySelector(`[name="${key}"]`);
-                        if (input && input.type !== 'checkbox') {
-                            input.value = field.values[0];
+    document.addEventListener('DOMContentLoaded', function () {
+        populateForm(document.getElementById('handandwrist'), formDataFromDB);
+    });
+
+    function populateForm(form, data) {
+        Object.entries(data).forEach(function ([key, field]) {
+            if (field && field.values) {
+                // Fill checkboxes or multi-selects
+                field.values.forEach(function (val) {
+                    var checkbox = form.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(val) + '"]');
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        var temp = checkbox.dataset.target;
+                        var targetemp = form.querySelector(temp);
+                        if (targetemp) {
+                            targetemp.disabled = false;
                         }
                     }
-                } else {
-                    // Simple single-value fields
-                    let input = form.querySelector(`[name="${key}"]`);
-                    if (input) input.value = field;
+                });
+
+                // If it's a single value and not a checkbox
+                if (field.values.length === 1) {
+                    var input = form.querySelector('[name="' + CSS.escape(key) + '"]');
+                    if (input && input.type !== 'checkbox') {
+                        var cleanValue = field.values[0]; // take the value as-is
+                        input.value = cleanValue;          // display exactly as stored
+                    }
                 }
-            });
-        }
-    document.querySelectorAll('[data-group]').forEach(group => {
-        const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-        const isExclusive = group.dataset?.exclusive === "true";
-            checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                const target = checkbox.dataset.target;
-                const relatedInput = target ? document.querySelector(target) : null;
+            } else {
+                // Simple single-value fields
+                var input = form.querySelector('[name="' + CSS.escape(key) + '"]');
+                if (input && typeof field === 'string') {
+                    input.value = field.replace(/^"(.*)"$/, '$1');
+                }
+            }
+        });
+    }
+
+    document.querySelectorAll('[data-group]').forEach(function (group) {
+        var checkboxes = group.querySelectorAll('input[type="checkbox"]');
+        var isExclusive = group.dataset && group.dataset.exclusive === "true";
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                var target = checkbox.dataset.target;
+                var relatedInput = target ? document.querySelector(target) : null;
+
                 // Exclusive group: uncheck others
                 if (isExclusive && checkbox.checked) {
-                    checkboxes.forEach(cb => {
+                    checkboxes.forEach(function (cb) {
                         if (cb !== checkbox) {
                             cb.checked = false;
+
                             // Disable related input if any
-                            const cbTarget = cb.dataset.target;
+                            var cbTarget = cb.dataset.target;
                             if (cbTarget) {
-                                const cbInput = document.querySelector(cbTarget);
-                                if (cbInput){
+                                var cbInput = document.querySelector(cbTarget);
+                                if (cbInput) {
                                     cbInput.disabled = true;
                                     cbInput.value = '';
                                     cbInput.classList.remove("error-field");
@@ -868,121 +896,148 @@ $regnos= optional($patDetails)->REG_NO;
                         }
                     });
                 }
+
+                // For any checkbox, handle its own related input
+                if (relatedInput) {
+                    if (checkbox.checked) {
+                        relatedInput.disabled = false;
+                    } else {
+                        relatedInput.disabled = true;
+                        relatedInput.value = '';
+                        relatedInput.classList.remove("error-field");
+                    }
+                }
             });
         });
     });
 
-    document.getElementById('handandwrist').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const json = getFormDataAsJSON(this); 
-    if (!json) return;
-
-    $.ajax({
-        url: '{{ route('save.handwrist.details') }}',  
-        type: 'POST',
-        data: JSON.stringify(json),                      
-        contentType: 'application/json',
-        dataType: 'json',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function(response) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: response.message || 'Form submitted successfully!',
-                confirmButtonText: 'OK'
-            }).then(() => {
-                window.location.reload();  
-            });
-        },
-        error: function(xhr) {
-            let message = xhr.responseJSON?.message || 'Something went wrong!';
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: message
-            });
-        }
+    document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
+        input.addEventListener('change', function () {
+            input.value = input.value.trim();
+        });
     });
-});
-function getFormDataAsJSON(formElement) {
-    const formData = new FormData(formElement);
-    const json = {};
-    let hasValue = false;
-    for (const [key, value] of formData.entries()) {
-        if (!value) continue;
-        // const inputEl = formElement.querySelector(`[name="${key}"][value="${value}"], [name="${key}"]`);
-        const inputEl = formElement.querySelector(`[name="${key}"][value="${value}"]`) || formElement.querySelector(
-            `[name="${key}"]`);
-        if (inputEl?.type === "checkbox" && inputEl.dataset.target) {
-            const relatedInput = document.querySelector(inputEl.dataset.target);
-            if (relatedInput && !relatedInput.value.trim()) {
-                let errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
+
+    document.getElementById('spinedeformifty').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var json = getFormDataAsJSON(this); // <-- works because 'this' is the form
+        if (!json) return;
+
+        $.ajax({
+            url: '{{ route('save.handwrist.details') }}', 
+            type: 'POST',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message || 'Form submitted successfully!',
+                    confirmButtonText: 'OK'
+                }).then(function () {
+                    window.location.reload();
+                });
+            },
+            error: function (xhr) {
+                var message = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Something went wrong!';
                 Swal.fire({
                     icon: 'error',
-                    title: 'Required Field Missing',
-                    text: `${errorname || 'This field'} is required.`,
-                }).then(() => {
-                    // Scroll to input
-                    relatedInput.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-                    // Highlight with red border
-                    relatedInput.classList.add("error-field");
-                    relatedInput.addEventListener("input", function handler() {
-                        relatedInput.classList.remove("error-field");
-                        relatedInput.removeEventListener("input", handler);
-                    });
+                    title: 'Oops...',
+                    text: message
                 });
-                return null;
             }
-        }
-        let title = null;
-        const groupDiv = inputEl?.closest('[data-title]');
-        if (groupDiv) {
-            title = groupDiv.getAttribute('data-title');
-        }
-        hasValue = true;
-        // Store values with title if available
-        if (title) {
-            if (!json[key]) {
-                json[key] = {
-                    title: title,
-                    values: []
-                };
-            }
-            json[key].values.push(value);
-        } else {
-            if (json[key] === undefined) {
-                json[key] = value;
-            } else {
-                json[key] = [].concat(json[key], value);
-            }
-        }
-    }
-    const patientName = document.getElementById('patient_name')?.value.trim();
-    const regno = document.getElementById('regno')?.value.trim();
-    const age = document.getElementById('age')?.value.trim();
-    const sex = document.getElementById('sex')?.value.trim();
-    if (!hasValue) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'No fields selected!',
-            text: 'Please select at least one field and fill in related values if required.',
         });
-        return null;
-    }
-    json.name = patientName;
-    json.regno = regno;
-    json.age = age;
-    json.sex = sex;
-    json.allergies = allergyData;
-    json.consultant = "Dr.sivamurugan";
-    json.type = "hand_wrist";
-    return json;
-}
+    });
 
+    function getFormDataAsJSON(formElement) {
+        var formData = new FormData(formElement);
+        var json = {};
+        var hasValue = false;
+
+        for (var pair of formData.entries()) {
+            var key = pair[0];
+            var value = pair[1];
+            if (!value) continue;
+
+            var inputEl = formElement.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(value) + '"]') 
+                || formElement.querySelector('[name="' + CSS.escape(key) + '"]');
+
+            if (inputEl && inputEl.type === "checkbox" && inputEl.dataset.target) {
+                var relatedInput = document.querySelector(inputEl.dataset.target);
+                if (relatedInput && !relatedInput.value.trim()) {
+                    var errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Required Field Missing',
+                        text: (errorname || 'This field') + ' is required.',
+                    }).then(function () {
+                        // Scroll to input
+                        relatedInput.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+                        // Highlight with red border
+                        relatedInput.classList.add("error-field");
+
+                        relatedInput.addEventListener("input", function handler() {
+                            relatedInput.classList.remove("error-field");
+                            relatedInput.removeEventListener("input", handler);
+                        });
+                    });
+                    return null;
+                }
+            }
+
+            var title = null;
+            var groupDiv = inputEl ? inputEl.closest('[data-title]') : null;
+            if (groupDiv) {
+                title = groupDiv.getAttribute('data-title');
+            }
+            hasValue = true;
+
+            // Store values with title if available
+            if (title) {
+                if (!json[key]) {
+                    json[key] = {
+                        title: title,
+                        values: []
+                    };
+                }
+                json[key].values.push(value);
+            } else {
+                if (json[key] === undefined) {
+                    json[key] = value;
+                } else {
+                    json[key] = [].concat(json[key], value);
+                }
+            }
+        }
+
+        var patientName = document.getElementById('patient_name') ? document.getElementById('patient_name').value.trim() : '';
+        var regno = document.getElementById('regno') ? document.getElementById('regno').value.trim() : '';
+        var age = document.getElementById('age') ? document.getElementById('age').value.trim() : '';
+        var sex = document.getElementById('sex') ? document.getElementById('sex').value.trim() : '';
+
+        if (!hasValue) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No fields selected!',
+                text: 'Please select at least one field and fill in related values if required.',
+            });
+            return null;
+        }
+        json.name = patientName;
+        json.regno = regno;
+        json.age = age;
+        json.sex = sex;
+        json.allergies = allergyData;
+        json.consultant = "Dr.sivamurugan";
+        json.type = "hand_wrist";
+        return json;
+    }
 </script>
   
