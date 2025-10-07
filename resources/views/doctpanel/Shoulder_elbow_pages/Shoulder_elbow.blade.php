@@ -253,25 +253,25 @@
         <div class="row">
             <div class="col">
                 <h5>Chief Complaint</h5>
-                <div class="checkbox-group">
+                <div class="checkbox-group" data-title="Chief Complaint">
                     <div class="checkbox-item">
-                        <input type="checkbox" name="" value="Pain">
+                        <input type="checkbox" name="Chief_Complaint" value="Pain">
                         <label for="">Pain</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" name="" value="Swelling">
+                        <input type="checkbox" name="Chief_Complaint" value="Swelling">
                         <label for="">Swelling</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" name="" value="Pain">
+                        <input type="checkbox" name="Chief_Complaint" value="Limitation_of_Movements">
                         <label for="">Limitation of Movements </label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" name="" value="Pain">
+                        <input type="checkbox" name="Chief_Complaint" value="Instability">
                         <label for="">Instability</label>
                     </div>
                 </div>
-                <div class="form-group " data-group="Side" data-exclusive="true">
+                <div class="form-group" data-title="Side" data-group="Side" data-exclusive="true">
                     <h5>Side:</h5> 
                     <div class="checkbox-group">
                         <div class="checkbox-item">
@@ -288,13 +288,13 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div data-title="Symptoms Duration">
                     <h5>Symptoms Duration:</h5>
                     <div class="form-group">
                         <textarea name="Symptoms_Duration" placeholder="Symptoms Duration"></textarea>
                     </div>
                 </div>
-                <div>
+                <div data-title="Onset">
                     <h5>Onset:</h5>
                     <div class="checkbox-group" data-group="Onset" data-exclusive="true">
                        <div class="checkbox-item">
@@ -307,7 +307,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div data-title="Radiation">
                     <h5>Radiation:</h5>
                     <div class="checkbox-group" data-group="Radiation" data-exclusive="true">
                        <div class="checkbox-item">
@@ -320,7 +320,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div data-title="Character">
                     <h5>Character:</h5>
                     <div class="checkbox-group" data-group="Character" data-exclusive="true">
                        <div class="checkbox-item">
@@ -333,78 +333,78 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div data-title="Aggravating factors" data-group="Aggravating_factors">
                     <h5>Aggravating factors:</h5>
-                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                    <div class="checkbox-group">
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Throbbing">
+                            <input type="checkbox" name="Aggravating_factors" value="Exercise">
                             <label for="">Exercise</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Aggravating_factors" value="Strenuous_activity">
                             <label for="">Strenuous activity</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Throbbing">
+                            <input type="checkbox" name="Aggravating_factors" value="Overhead_activities">
                             <label for="">Overhead activities</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Aggravating_factors" value="Walking">
                             <label for="">Walking</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Aggravating_factors" value="Running">
                             <label for="">Running</label>
                         </div>
                     </div>
                     <div class="checkbox-group mt-3">
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Aggravating_factors" value="Others" data-target="#input4">
                             <label for="">Others</label>
                         </div>
-                        <input type="text" placeholder="Specify others" name="Incontinence">
+                        <input type="text" placeholder="Specify others" id="input4" name="Aggravating_factors_others" disabled>
                     </div>
                         
                 </div>
-                <div>
+                <div data-title="Relieving factors">
                     <h5>Relieving factors:</h5>
-                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                    <div class="checkbox-group" data-group="Relieving_factors">
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Throbbing">
+                            <input type="checkbox" name="Relieving_factors" value="Rest">
                             <label for="">Rest</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Relieving_factors" value="Medication">
                             <label for="">Medication</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Throbbing">
+                            <input type="checkbox" name="Relieving_factors" value="Lying_down">
                             <label for="">Lying down</label>
                         </div>
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Relieving_factors" value="Pricking" data-target="#input5">
                             <label for="">Others</label>
                         </div>
-                        <input type="text" placeholder="Specify others" name="">
+                        <input type="text" placeholder="Specify others" name="Relieving_factors_Others" id="input5" disabled>
                         
                     </div>
                 </div>
 
-                <div class="form-group" data-group="Injections" data-exclusive="true">
+                <div class="form-group" data-title="Relation to trauma" data-group="Relation_to_trauma" data-exclusive="true">
                     <h5>Relation to trauma:</h5>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="ESI">
+                            <input type="checkbox" name="Relation_to_trauma" value="No">
                             <label for="">No</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="Trigger" data-target="#input4">
+                            <input type="checkbox" name="Relation_to_trauma" value="checkbox" data-target="#input6">
                             <label for="">Yes</label>
                         </div>
-                        <input type="text" placeholder="Specify Relation to trauma">
+                        <input type="text" id="input6" placeholder="Specify Relation to trauma" name="Relation_to_trauma_Description" disabled>
                     </div>
                 </div>
-                <div>
+                <div data-title="Any H/O fever">
                     <h5>Any H/O fever:</h5>
                     <div class="checkbox-group" data-group="Any_H/O_fever" data-exclusive="true">
                        <div class="checkbox-item">
@@ -417,210 +417,198 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div data-title="Instability">
                     <h5>Instability:</h5>
-                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
+                    <div class="checkbox-group" data-group="Instability" data-exclusive="true">
                        <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Throbbing">
+                            <input type="checkbox" name="Instability" value="Voluntary">
                             <label for="">Voluntary</label>
                         </div>
                        <div class="checkbox-item" style="margin-left:45px">
-                            <input type="checkbox" name="Character" value="Pricking">
+                            <input type="checkbox" name="Instability" value="Disvoluntary">
                             <label for="">Disvoluntary</label>
                         </div>
                     </div>
-                    <div class="checkbox-group" data-group="Character" data-exclusive="true">
-                       <div class="checkbox-item">
-                            <input type="checkbox" name="Character" value="Throbbing">
-                            <label for="">Onset</label>
-                        </div>
-                       <div class="checkbox-item" style="margin-left:70px;">
-                            <input type="checkbox" name="Character" value="Pricking">
-                            <label for="">Duration</label>
-                        </div>
+                    <div style="display: flex; gap:10px;align-items:center">
+                        <label for="">Onset & Duration:</label>
+                        <input type="text" style="margin-left: 44px;margin-bottom:5px;" name="Onset_&_Duration">
                     </div>
                     <div style="display: flex; gap:10px;align-items:center">
-                        <input type="checkbox">
                         <label for="">Associated Movements:</label>
-                        <input type="text" style="margin-bottom:5px;">
+                        <input type="text" style="margin-bottom:5px;" name="Associated_Movements">
                     </div>
-                    
-
                     <div style="display: flex; gap:10px;align-items:center">
-                        <input type="checkbox">
                         <label for="">How Frequent:</label>
-                        <input type="text" style="margin-left: 66px;margin-bottom:5px;">
+                        <input type="text" style="margin-left: 66px;margin-bottom:5px;" name="How_Frequent">
                     </div>
                     <div style="display: flex; gap:10px;align-items:center">
-                        <input type="checkbox">
                         <label for="">No of Dislocation:</label>
-                        <input type="text" style="margin-left:44px;">
+                        <input type="text" style="margin-left:44px;" name="No_of_Dislocation">
                     </div>
                 </div>
 
-                <div>
-                    <h5>Pain Severity</h5>
-                    <div class="checkbox-group" data-group="Tanner_stage" data-exclusive="true">
+                <div data-title="Pain Severity">
+                    <h5>Pain Severity:</h5>
+                    <div class="checkbox-group" data-group="Pain_Severity" data-exclusive="true">
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="1">
+                            <input type="checkbox" name="Pain_Severity" value="1">
                             <label for="">1</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="2">
+                            <input type="checkbox" name="Pain_Severity" value="2">
                             <label for="">2</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="3">
+                            <input type="checkbox" name="Pain_Severity" value="3">
                             <label for="">3</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="4">
+                            <input type="checkbox" name="Pain_Severity" value="4">
                             <label for="">4</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="5">
+                            <input type="checkbox" name="Pain_Severity" value="5">
                             <label for="">5</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="1">
+                            <input type="checkbox" name="Pain_Severity" value="6">
                             <label for="">6</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="2">
+                            <input type="checkbox" name="Pain_Severity" value="7">
                             <label for="">7</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="3">
+                            <input type="checkbox" name="Pain_Severity" value="8">
                             <label for="">8</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="4">
+                            <input type="checkbox" name="Pain_Severity" value="9">
                             <label for="">9</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Tanner_stage" value="5">
+                            <input type="checkbox" name="Pain_Severity" value="10">
                             <label for="">10</label>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" data-title="Prior Treatment Attempted">
                     <h5>Prior Treatment Attempted:</h5>
-                    <div class="checkbox-group">
+                    <div class="checkbox-group" data-group="Prior_Treatment_Attempted" data-exclusive="true">
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="ESI">
+                            <input type="checkbox" name="Prior_Treatment_Attempted" value="No">
                             <label for="">No</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="Trigger" data-target="#input4">
+                            <input type="checkbox" name="Prior_Treatment_Attempted" value="Yes" data-target="#input7">
                             <label for="">Yes</label>
                         </div>
-                        <input type="text" placeholder="Prior Treatment Attempted">
+                        <input type="text" placeholder="Prior Treatment Attempted" id="input7" disabled name="Prior_Treatments_Attempted">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" data-title="Shoulder dislocation">
                     <h5>Shoulder dislocation:</h5>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="ESI">
-                            <label for="">Any</label>
+                            <label for="">Any:</label>
                         </div>
-                        <input type="text" placeholder="Specify Any">
+                        <input type="text" placeholder="Specify Any" name="Shoulder_dislocation">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" data-title="Pain is worst in" data-group="Pain_is_worst_in" data-exclusive="true">
                     <h5>Pain is worst in:</h5>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="ESI">
+                            <input type="checkbox" name="Pain_is_worst_in" value="Morning">
                             <label for="">Morning</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="ESI">
+                            <input type="checkbox" name="Pain_is_worst_in" value="Night">
                             <label for="">Night</label>
                         </div>
                     </div>
                 </div>
-                <div>
+                <div data-title="Activity of daily living">
                     <h5>Activity of daily living:</h5>
                     <div class="form-group">
-                        <textarea name="Symptoms_Duration" placeholder="Activity of daily living"></textarea>
+                        <textarea name="Activity_of_daily_living" placeholder="Activity of daily living"></textarea>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div>
+                <div data-title="Patient had Similiar complaint in the Past">
                     <h5>Patient had Similiar complaint in the Past:</h5>
                     <div class="form-group">
-                        <textarea name="Symptoms_Duration" placeholder="Specify complaint"></textarea>
+                        <textarea  name="Patient_had_Similiar_complaint_in_the_Past" placeholder="Specify complaint"></textarea>
                     </div>
                 </div>
-                <div>
-                    <h5>Other Complaints</h5>
-                    <div class="checkbox-group">
+                <div data-title="Other Complaints">
+                    <h5>Other Complaints:</h5>
+                    <div class="checkbox-group" data-group="Fatigue" data-exclusive="true">
                         <div class="checkbox-item">
                             <label>Fatigue:</label>
-                            <input type="checkbox" name="Injections" value="ESI">
+                            <input type="checkbox" name="fatigue" value="No">
                             <label for="">No</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" name="Injections" value="Trigger" data-target="#input4">
+                            <input type="checkbox" name="fatigue" value="Yes" data-target="#input8">
                             <label for="">Yes</label>
                         </div>
-                        <input type="text" placeholder="Prior Treatment Attempted">
+                        <input type="text" placeholder="Specify Other Complaints" name="Fatigue" disabled id="input8">
                     </div>
                 </div>
-                <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;">
+                <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;" data-title="Other Complaints">
                     <div>
                         <label for="" class="label1">Bladder:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Bladder">
+                        <input type="text" class="inline-input" placeholder="Describe Bladder" name="Bladder">
                     </div>
                     <div>
                         <label for="" class="label1">Bowel:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Bowel">
+                        <input type="text" class="inline-input" placeholder="Describe Bowel" name="Bowel">
                     </div>
                     <div>
                         <label for="" class="label1">Fever:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Fever">
+                        <input type="text" class="inline-input" placeholder="Describe Fever" name="Fever">
                     </div>
                     <div>
                         <label for="" class="label1">Weight loss:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Weight loss">
+                        <input type="text" class="inline-input" placeholder="Describe Weight loss" name="Weight_loss">
                     </div>
                     <div>
                         <label for="" class="label1">Weight gain:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Weight gain">
+                        <input type="text" class="inline-input" placeholder="Describe Weight gain" name="Weight_gain">
                     </div>
                     <div>
                         <label for="" class="label1">Loss of Appetite:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Loss of Appetite">
+                        <input type="text" class="inline-input" placeholder="Describe Loss of Appetite" name="Loss_of_Appetite">
                     </div>
                     <div>
                         <label for="" class="label1">Others:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Others">
+                        <input type="text" class="inline-input" placeholder="Describe Others" name="Others">
                     </div>
                     
                 </div>
                 <h5>Personal History</h5>
-                <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;">
+                <div class="mt-2" style="display: flex;flex-wrap:wrap;gap:5px;row-gap:20px;" data-title="Personal History">
                     <div>
                         <label for="" class="label1">Alcohol:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Alcohol">
+                        <input type="text" class="inline-input" placeholder="Describe Alcohol" name="Alcohol">
                     </div>
                     <div>
                         <label for="" class="label1">Smoking:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Smoking">
+                        <input type="text" class="inline-input" placeholder="Describe Smoking" name="Smoking">
                     </div>
                     <div>
                         <label for="" class="label1">Job:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Job">
+                        <input type="text" class="inline-input" placeholder="Describe Job" name="Job">
                     </div>
                     <div>
                         <label for="" class="label1">Sports:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Sports">
+                        <input type="text" class="inline-input" placeholder="Describe Sports" name="Sports">
                     </div>
                     <div>
                         <label for="" class="label1">Others:</label>
-                        <input type="text" class="inline-input" placeholder="Describe Others">
+                        <input type="text" class="inline-input" placeholder="Describe Others" name="Personal_History_Others">
                     </div>
                 </div>
                 <div>
@@ -629,7 +617,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <label for="">Hypertension :</label>
+                                    <label for="">Hypertension:</label>
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
@@ -640,7 +628,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Thyroid :</label>
+                                    <label for="">Thyroid:</label>
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
@@ -651,7 +639,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Diabetics :</label>
+                                    <label for="">Diabetics:</label>
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
@@ -662,7 +650,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Tuberculosis :</label>
+                                    <label for="">Tuberculosis:</label>
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
@@ -682,7 +670,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Heart Disorder :</label>
+                                    <label for="">Heart Disorder:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -694,7 +682,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Liver Disease :</label>
+                                    <label for="">Liver Disease:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -706,7 +694,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Renal Problem :</label>
+                                    <label for="">Renal Problem:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -718,7 +706,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Gastro - Enterology :</label>
+                                    <label for="">Gastro - Enterology:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -730,7 +718,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Respiratory :</label>
+                                    <label for="">Respiratory:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -742,7 +730,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Neurology :</label>
+                                    <label for="">Neurology:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -754,7 +742,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Previous Surgery :</label>
+                                    <label for="">Previous Surgery:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -766,7 +754,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Previous Surgery 1 :</label>
+                                    <label for="">Previous Surgery 1:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -778,7 +766,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="">Others :</label>
+                                    <label for="">Others:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
@@ -1167,15 +1155,13 @@
 @php
 $regnos= optional($patDetails)->REG_NO;
     $currentRecord = \App\Models\Opdpart::select('data','regno')
-    ->where('type', 'spinal_deformity')
+    ->where('type', 'shoulder_elbow')
     ->where('regno',$regnos)
         ->whereDate('created_at', \Carbon\Carbon::today())
         ->latest()
         ->first();
 @endphp
 <script>
-    const allergyData = @json($allergy_data);
-    let formDataFromDB = @json($currentRecord->data ?? []);
     if (!Object.entries) {
         Object.entries = function (obj) {
             return Object.keys(obj).map(function (key) {
@@ -1191,6 +1177,9 @@ $regnos= optional($patDetails)->REG_NO;
             });
         };
     }
+    const allergyData = @json($allergy_data);
+    let formDataFromDB = @json($currentRecord->data ?? []);
+    
     function toggleregion(checkbox, regionId, suppressScroll = false) {
         let section = document.getElementById(regionId);
 
@@ -1221,6 +1210,43 @@ $regnos= optional($patDetails)->REG_NO;
         } else {
             section.style.display = "none";
         }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        populateForm(document.getElementById('shoulder_elbow'), formDataFromDB);
+    });
+
+    function populateForm(form, data) {
+        Object.entries(data).forEach(function ([key, field]) {
+            if (field && field.values) {
+                // Fill checkboxes or multi-selects
+                field.values.forEach(function (val) {
+                    var checkbox = form.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(val) + '"]');
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        var temp = checkbox.dataset.target;
+                        var targetemp = form.querySelector(temp);
+                        if (targetemp) {
+                            targetemp.disabled = false;
+                        }
+                    }
+                });
+
+                // If it's a single value and not a checkbox
+                if (field.values.length === 1) {
+                    var input = form.querySelector('[name="' + CSS.escape(key) + '"]');
+                    if (input && input.type !== 'checkbox') {
+                        var cleanValue = field.values[0]; // take the value as-is
+                        input.value = cleanValue;          // display exactly as stored
+                    }
+                }
+            } else {
+                // Simple single-value fields
+                var input = form.querySelector('[name="' + CSS.escape(key) + '"]');
+                if (input && typeof field === 'string') {
+                    input.value = field.replace(/^"(.*)"$/, '$1');
+                }
+            }
+        });
     }
 
     document.querySelectorAll('[data-group]').forEach(function (group) {

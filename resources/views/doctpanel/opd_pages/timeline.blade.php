@@ -316,7 +316,12 @@
                                         // 'Social_History'      => 'NKDA',
                                         // 'Past_Medical_History'=> 'None',
                                     ],
-                                    'hand_wrist' => [],                              
+                                    'hand_wrist' => [],
+                                    'shoulder_elbow' => [
+                                        'Relation_to_trauma' => 'checkbox',
+                                        'Prior_Treatment_Attempted' => 'Yes',
+                                        'fatigue' => 'Yes',
+                                    ],                              
                                     // default (if no type matched)
                                 ];
                                 $not_table_spineDeformity = true;

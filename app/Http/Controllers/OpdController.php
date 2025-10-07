@@ -94,7 +94,8 @@ class OpdController extends Controller
             ],
             'knee' => [],
             'leg' => [],
-            'hand_wrist' => [], 
+            'hand_wrist' => [],
+            'shoulder_elbow' => [], 
         ];
         $removeList = $removeLists[$recordata->type];
         foreach ($datas as $key => $value) {

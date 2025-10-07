@@ -8,10 +8,7 @@ use Illuminate\Http\Request;
 class OpdShoulderElbowController extends Controller
 {
     public function store(Request $request){
-        dd("working");
-        
         $json = $request->json()->all();
-
         $validated = validator($json, [
             'name'        => 'required|string',
             'age'         => 'required|string',
@@ -32,7 +29,7 @@ class OpdShoulderElbowController extends Controller
                 $json['type'],
             );
 
-        $existing = Opdpart::where('regno', $validated['regno'])->where('type','spinal_deformity')
+        $existing = Opdpart::where('regno', $validated['regno'])->where('type','shoulder_elbow')
             ->whereDate('created_at', now()->toDateString())
             ->first();
 
