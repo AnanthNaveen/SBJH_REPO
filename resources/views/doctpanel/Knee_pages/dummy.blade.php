@@ -1566,6 +1566,7 @@
     <input type="hidden" value="{{optional($patDetails)->REG_NO}}" id="regno">
     <input type="hidden" value="{{optional($patDetails)->age}}" id="age">
     <input type="hiddenas" value="{{optional($patDetails)->SEX}}" id="sex">
+    <input type="hiddens" value="{{optional($patDetails)->SEX}}" id="sex">
 </form>
 
 <!-- Include SweetAlert2 JS before </body> -->
