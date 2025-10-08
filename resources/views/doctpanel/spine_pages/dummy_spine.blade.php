@@ -225,6 +225,7 @@
                             <label for="">N</label>
                         </div>
                         <input type="text" placeholder="Specify Trigger">
+                        <input type="text" placeholder="Specify Trigger">
                     </div>
                 </div>
             </div>
