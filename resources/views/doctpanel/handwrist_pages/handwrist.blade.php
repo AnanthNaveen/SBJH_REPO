@@ -8,7 +8,7 @@
         background: linear-gradient(90deg, rgba(98, 191, 117, 0.1), rgba(98, 191, 117, 0.05));
         border-radius: 6px;
         padding: 10px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .form-group {
