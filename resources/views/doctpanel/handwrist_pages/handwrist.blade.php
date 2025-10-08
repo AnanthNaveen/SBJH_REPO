@@ -813,7 +813,6 @@ $regnos= optional($patDetails)->REG_NO;
         document.addEventListener('DOMContentLoaded', () => {
             populateForm(document.getElementById('handandwrist'), formDataFromDB);
         });
-
         function populateForm(form, data) {
             Object.entries(data).forEach(([key, field]) => {
                 if (field?.values) {
@@ -871,13 +870,13 @@ $regnos= optional($patDetails)->REG_NO;
             });
         });
     });
-
     document.getElementById('handandwrist').addEventListener('submit', function(e) {
     e.preventDefault();
     const json = getFormDataAsJSON(this); 
     if (!json) return;
 
     $.ajax({
+        
         url: '{{ route('save.handwrist.details') }}',  
         type: 'POST',
         data: JSON.stringify(json),                      
