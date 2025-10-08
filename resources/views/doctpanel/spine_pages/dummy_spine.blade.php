@@ -222,7 +222,7 @@
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" name="Injections" value="ESI">
-                            <label for="">N</label>
+                            <label for="">No</label>
                         </div>
                         <input type="text" placeholder="Specify Trigger">
                         <input type="textarea" placeholder="Specify Trigger">
