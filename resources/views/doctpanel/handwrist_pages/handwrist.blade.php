@@ -911,133 +911,117 @@
         });
     });
 
-    document.querySelectorAll('input[type="text"], textarea').forEach(function (input) {
-        input.addEventListener('change', function () {
-            input.value = input.value.trim();
-        });
+    document.getElementById('handandwrist').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const json = getFormDataAsJSON(this); 
+    if (!json) return;
+
+    $.ajax({
+        url: '{{ route('save.handwrist.details') }}',  
+        type: 'POST',
+        data: JSON.stringify(json),                      
+        contentType: 'application/json',
+        dataType: 'json',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(response) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: response.message || 'Form submitted successfully!',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.reload();  
+            });
+        },
+        error: function(xhr) {
+            let message = xhr.responseJSON?.message || 'Something went wrong!';
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: message
+            });
+        }
     });
-
-    document.getElementById('spinedeformifty').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var json = getFormDataAsJSON(this); // <-- works because 'this' is the form
-        if (!json) return;
-
-        $.ajax({
-            url: '{{ route('save.handwrist.details') }}', 
-            type: 'POST',
-            data: JSON.stringify(json),
-            contentType: 'application/json',
-            dataType: 'json',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (response) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: response.message || 'Form submitted successfully!',
-                    confirmButtonText: 'OK'
-                }).then(function () {
-                    window.location.reload();
-                });
-            },
-            error: function (xhr) {
-                var message = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Something went wrong!';
+});
+function getFormDataAsJSON(formElement) {
+    const formData = new FormData(formElement);
+    const json = {};
+    let hasValue = false;
+    for (const [key, value] of formData.entries()) {
+        if (!value) continue;
+        // const inputEl = formElement.querySelector(`[name="${key}"][value="${value}"], [name="${key}"]`);
+        const inputEl = formElement.querySelector(`[name="${key}"][value="${value}"]`) || formElement.querySelector(
+            `[name="${key}"]`);
+        if (inputEl?.type === "checkbox" && inputEl.dataset.target) {
+            const relatedInput = document.querySelector(inputEl.dataset.target);
+            if (relatedInput && !relatedInput.value.trim()) {
+                let errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: message
-                });
-            }
-        });
-    });
-
-    function getFormDataAsJSON(formElement) {
-        var formData = new FormData(formElement);
-        var json = {};
-        var hasValue = false;
-
-        for (var pair of formData.entries()) {
-            var key = pair[0];
-            var value = pair[1];
-            if (!value) continue;
-
-            var inputEl = formElement.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(value) + '"]') 
-                || formElement.querySelector('[name="' + CSS.escape(key) + '"]');
-
-            if (inputEl && inputEl.type === "checkbox" && inputEl.dataset.target) {
-                var relatedInput = document.querySelector(inputEl.dataset.target);
-                if (relatedInput && !relatedInput.value.trim()) {
-                    var errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Required Field Missing',
-                        text: (errorname || 'This field') + ' is required.',
-                    }).then(function () {
-                        // Scroll to input
-                        relatedInput.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
-
-                        // Highlight with red border
-                        relatedInput.classList.add("error-field");
-
-                        relatedInput.addEventListener("input", function handler() {
-                            relatedInput.classList.remove("error-field");
-                            relatedInput.removeEventListener("input", handler);
-                        });
+                    title: 'Required Field Missing',
+                    text: `${errorname || 'This field'} is required.`,
+                }).then(() => {
+                    // Scroll to input
+                    relatedInput.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
                     });
-                    return null;
-                }
+                    // Highlight with red border
+                    relatedInput.classList.add("error-field");
+                    relatedInput.addEventListener("input", function handler() {
+                        relatedInput.classList.remove("error-field");
+                        relatedInput.removeEventListener("input", handler);
+                    });
+                });
+                return null;
             }
-
-            var title = null;
-            var groupDiv = inputEl ? inputEl.closest('[data-title]') : null;
-            if (groupDiv) {
-                title = groupDiv.getAttribute('data-title');
+        }
+        let title = null;
+        const groupDiv = inputEl?.closest('[data-title]');
+        if (groupDiv) {
+            title = groupDiv.getAttribute('data-title');
+        }
+        hasValue = true;
+        // Store values with title if available
+        if (title) {
+            if (!json[key]) {
+                json[key] = {
+                    title: title,
+                    values: []
+                };
             }
-            hasValue = true;
-
-            // Store values with title if available
-            if (title) {
-                if (!json[key]) {
-                    json[key] = {
-                        title: title,
-                        values: []
-                    };
-                }
-                json[key].values.push(value);
+            json[key].values.push(value);
+        } else {
+            if (json[key] === undefined) {
+                json[key] = value;
             } else {
-                if (json[key] === undefined) {
-                    json[key] = value;
-                } else {
-                    json[key] = [].concat(json[key], value);
-                }
+                json[key] = [].concat(json[key], value);
             }
         }
-
-        var patientName = document.getElementById('patient_name') ? document.getElementById('patient_name').value.trim() : '';
-        var regno = document.getElementById('regno') ? document.getElementById('regno').value.trim() : '';
-        var age = document.getElementById('age') ? document.getElementById('age').value.trim() : '';
-        var sex = document.getElementById('sex') ? document.getElementById('sex').value.trim() : '';
-
-        if (!hasValue) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'No fields selected!',
-                text: 'Please select at least one field and fill in related values if required.',
-            });
-            return null;
-        }
-        json.name = patientName;
-        json.regno = regno;
-        json.age = age;
-        json.sex = sex;
-        json.allergies = allergyData;
-        json.consultant = "Dr.sivamurugan";
-        json.type = "hand_wrist";
-        return json;
     }
+    const patientName = document.getElementById('patient_name')?.value.trim();
+    const regno = document.getElementById('regno')?.value.trim();
+    const age = document.getElementById('age')?.value.trim();
+    const sex = document.getElementById('sex')?.value.trim();
+    if (!hasValue) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No fields selected!',
+            text: 'Please select at least one field and fill in related values if required.',
+        });
+        return null;
+    }
+    json.name = patientName;
+    json.regno = regno;
+    json.age = age;
+    json.sex = sex;
+    json.allergies = allergyData;
+    json.consultant = "Dr.sivamurugan";
+    json.type = "hand_wrist";
+    return json;
+}
+
 </script>
   
