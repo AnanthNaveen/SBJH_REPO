@@ -614,7 +614,7 @@
                 <div>
                     <h5>Past Medical History</h5>
                     <table style="box-shadow: none;">
-                        <tbody>
+                        <tbody data-title="Past Medical History">   
                             <tr>
                                 <td>
                                     <label for="">Hypertension:</label>
@@ -622,7 +622,7 @@
                                 <td>
                                     <div class="checkbox-item">
                                         <label for="" class="label1">Since:</label>
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Hypertension" placeholder="Since" style="width:45%;">
                                     </div>
                                 </td>
                             </tr>
@@ -632,7 +632,7 @@
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Thyroid" placeholder="Since" style="width:45%;">
                                         <label for="" class="label1">years ago</label>
                                     </div>
                                 </td>
@@ -644,7 +644,7 @@
                                 <td>
                                     <div class="checkbox-item">
                                         <label for="" class="label1">Since:</label>
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Diabetics" placeholder="Since" style="width:45%;">
                                     </div>
                                 </td>
                             </tr>
@@ -654,7 +654,7 @@
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Tuberculosis" placeholder="Since" style="width:45%;">
                                         <label for="" class="label1">years ago</label>
                                     </div>
                                 </td>
@@ -674,9 +674,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Heart_Disorder">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Heart_Disorder(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -686,9 +686,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Liver_Disease">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Liver_Disease(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -698,9 +698,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Renal_Problem">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Renal_Problem(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -710,9 +710,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Gastro_-_Enterology">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Gastro_-_Enterology(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -722,9 +722,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Respiratory">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Respiratory(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -734,9 +734,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Neurology">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Neurology(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -746,9 +746,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -758,9 +758,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery_1">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery_1(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -770,9 +770,9 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Other_Disorders">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Other_Disorders(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -798,48 +798,51 @@
     <div class="section" id="should" style="display:none;">
        <div class="row">
         <div class="col">
-            <div id="Inspectionshould">
-                <h5>Inspection</h5>
-                <div class="form-group">
-                    <textarea name="Inspection" placeholder="Specify Inspection"></textarea>
-                </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Skin:</h6>
-                <div class="form-group">
-                    <textarea name="Skin" placeholder="Specify Skin"></textarea>
-                </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Sweeling:</h6>
-                <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="No">
-                        <label for="">No</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="Yes">
-                        <label for="">Yes</label>
+            <div data-title="Inspection-shoulder">
+
+                <div id="Inspectionshould">
+                    <h5>Inspection</h5>
+                    <div class="form-group">
+                        <textarea name="Inspection" placeholder="Specify Inspection"></textarea>
                     </div>
                 </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Asymmetry:</h6>
-                <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="No">
-                        <label for="">No</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="Yes">
-                        <label for="">Yes</label>
+                <div>
+                    <h6 style="margin-top: 10px;">Skin:</h6>
+                    <div class="form-group">
+                        <textarea name="Skin" placeholder="Specify Skin"></textarea>
                     </div>
                 </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Specific Finding:</h6>
-                <div class="form-group">
-                    <textarea name="Skin" placeholder="Specify Specific Finding"></textarea>
+                <div>
+                    <h6 style="margin-top: 10px;">Sweeling:</h6>
+                    <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Sweeling" value="No">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Sweeling" value="Yes">
+                            <label for="">Yes</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h6 style="margin-top: 10px;">Asymmetry:</h6>
+                    <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Sweeling" value="No">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Sweeling" value="Yes">
+                            <label for="">Yes</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h6 style="margin-top: 10px;">Specific Finding:</h6>
+                    <div class="form-group">
+                        <textarea name="Skin" placeholder="Specify Specific Finding"></textarea>
+                    </div>
                 </div>
             </div>
             <h5>Palpation:</h5>
