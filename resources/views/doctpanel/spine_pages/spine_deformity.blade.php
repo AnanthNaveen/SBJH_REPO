@@ -1272,7 +1272,7 @@
             </div>
         </div>
         <div style="display: flex;justify-content:center;margin-top:20px;">
-            <button type="submit" class="btn btn-success" style="font-size: 25px;width: 200px;">Save</button>
+            <button type="submit" class="btn btn-success" style="font-size: 25px;width: 200px;" id="savebtn">Save</button>
         </div>
 
         <input type="hidden" value="{{ optional($patDetails)->PATIENT_NAME }}" id="patient_name">
@@ -1418,6 +1418,7 @@ $regnos= optional($patDetails)->REG_NO;
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
+                    allowOutsideClick: false,
                     text: response.message || 'Form submitted successfully!',
                     confirmButtonText: 'OK'
                 }).then(function () {
@@ -1429,6 +1430,7 @@ $regnos= optional($patDetails)->REG_NO;
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
+                    allowOutsideClick: false,
                     text: message
                 });
             }
@@ -1454,6 +1456,7 @@ $regnos= optional($patDetails)->REG_NO;
                     var errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
                     Swal.fire({
                         icon: 'error',
+                        allowOutsideClick: false,
                         title: 'Required Field Missing',
                         text: (errorname || 'This field') + ' is required.',
                     }).then(function () {
@@ -1509,6 +1512,7 @@ $regnos= optional($patDetails)->REG_NO;
             Swal.fire({
                 icon: 'warning',
                 title: 'No fields selected!',
+                allowOutsideClick: false,
                 text: 'Please select at least one field and fill in related values if required.',
             });
             return null;

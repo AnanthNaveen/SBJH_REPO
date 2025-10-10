@@ -321,6 +321,9 @@
                                         'Relation_to_trauma' => 'checkbox',
                                         'Prior_Treatment_Attempted' => 'Yes',
                                         'fatigue' => 'Yes',
+                                        'anteriorly' => 'checkbox',
+                                        'LateralAspect' => 'checkbox',
+                                        'posteriorly' => 'checkbox',
                                     ],                              
                                     // default (if no type matched)
                                 ];

@@ -95,7 +95,14 @@ class OpdController extends Controller
             'knee' => [],
             'leg' => [],
             'hand_wrist' => [],
-            'shoulder_elbow' => [], 
+            'shoulder_elbow' => [
+                'Relation_to_trauma' => 'checkbox',
+                'Prior_Treatment_Attempted' => 'Yes',
+                'fatigue' => 'Yes',
+                'anteriorly' => 'checkbox',
+                'LateralAspect' => 'checkbox',
+                'posteriorly' => 'checkbox',
+            ], 
         ];
         $removeList = $removeLists[$recordata->type];
         foreach ($datas as $key => $value) {

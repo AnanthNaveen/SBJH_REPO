@@ -1359,6 +1359,7 @@ $regnos= optional($patDetails)->REG_NO;
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
+                    allowOutsideClick: false,
                     text: response.message || 'Form submitted successfully!',
                     confirmButtonText: 'OK'
                 }).then(() => {
@@ -1369,6 +1370,7 @@ $regnos= optional($patDetails)->REG_NO;
                 let message = xhr.responseJSON?.message || 'Something went wrong!';
                 Swal.fire({
                     icon: 'error',
+                    allowOutsideClick: false,
                     title: 'Oops...',
                     text: message
                 });
@@ -1395,6 +1397,7 @@ $regnos= optional($patDetails)->REG_NO;
                     var errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
                     Swal.fire({
                         icon: 'error',
+                        allowOutsideClick: false,
                         title: 'Required Field Missing',
                         text: (errorname || 'This field') + ' is required.',
                     }).then(function () {
@@ -1451,6 +1454,7 @@ $regnos= optional($patDetails)->REG_NO;
             Swal.fire({
                 icon: 'warning',
                 title: 'No fields selected!',
+                allowOutsideClick: false,
                 text: 'Please select at least one field and fill in related values if required.',
             });
             return null;
