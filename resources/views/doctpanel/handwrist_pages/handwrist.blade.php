@@ -821,25 +821,6 @@
     }
     const allergyData = @json($allergy_data);
     let formDataFromDB = @json($currentRecord->data ?? []);
-<<<<<<< HEAD
-
-    document.addEventListener('DOMContentLoaded', function () {
-        populateForm(document.getElementById('handandwrist'), formDataFromDB);
-    });
-
-    function populateForm(form, data) {
-        Object.entries(data).forEach(function ([key, field]) {
-            if (field && field.values) {
-                // Fill checkboxes or multi-selects
-                field.values.forEach(function (val) {
-                    var checkbox = form.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(val) + '"]');
-                    if (checkbox) {
-                        checkbox.checked = true;
-                        var temp = checkbox.dataset.target;
-                        var targetemp = form.querySelector(temp);
-                        if (targetemp) {
-                            targetemp.disabled = false;
-=======
         document.addEventListener('DOMContentLoaded', () => {
             populateForm(document.getElementById('handandwrist'), formDataFromDB);
         });
@@ -863,38 +844,22 @@
                         let input = form.querySelector(`[name="${key}"]`);
                         if (input && input.type !== 'checkbox') {
                             input.value = field.values[0];
->>>>>>> 3e69164 (hand and wrist page script changes)
                         }
                     }
-                });
-
-                // If it's a single value and not a checkbox
-                if (field.values.length === 1) {
-                    var input = form.querySelector('[name="' + CSS.escape(key) + '"]');
-                    if (input && input.type !== 'checkbox') {
-                        var cleanValue = field.values[0]; // take the value as-is
-                        input.value = cleanValue;          // display exactly as stored
-                    }
+                } else {
+                    // Simple single-value fields
+                    let input = form.querySelector(`[name="${key}"]`);
+                    if (input) input.value = field;
                 }
-            } else {
-                // Simple single-value fields
-                var input = form.querySelector('[name="' + CSS.escape(key) + '"]');
-                if (input && typeof field === 'string') {
-                    input.value = field.replace(/^"(.*)"$/, '$1');
-                }
-            }
-        });
-    }
-
-    document.querySelectorAll('[data-group]').forEach(function (group) {
-        var checkboxes = group.querySelectorAll('input[type="checkbox"]');
-        var isExclusive = group.dataset && group.dataset.exclusive === "true";
-
-        checkboxes.forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-                var target = checkbox.dataset.target;
-                var relatedInput = target ? document.querySelector(target) : null;
-
+            });
+        }
+    document.querySelectorAll('[data-group]').forEach(group => {
+        const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+        const isExclusive = group.dataset?.exclusive === "true";
+            checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const target = checkbox.dataset.target;
+                const relatedInput = target ? document.querySelector(target) : null;
                 // Exclusive group: uncheck others
                 if (isExclusive && checkbox.checked) {
                     checkboxes.forEach(cb => {
