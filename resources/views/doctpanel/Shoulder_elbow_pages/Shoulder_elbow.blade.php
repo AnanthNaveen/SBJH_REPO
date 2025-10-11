@@ -271,7 +271,7 @@
                         <label for="">Instability</label>
                     </div>
                 </div>
-                <div class="form-group" data-title="Side" data-group="Side" data-exclusive="true">
+                <div class="form-group" data-title="Chief Complaint" data-group="Side" data-exclusive="true">
                     <h5>Side:</h5> 
                     <div class="checkbox-group">
                         <div class="checkbox-item">
@@ -288,13 +288,13 @@
                         </div>
                     </div>
                 </div>
-                <div data-title="Symptoms Duration">
+                <div data-title="Chief Complaint">
                     <h5>Symptoms Duration:</h5>
                     <div class="form-group">
                         <textarea name="Symptoms_Duration" placeholder="Symptoms Duration"></textarea>
                     </div>
                 </div>
-                <div data-title="Onset">
+                <div data-title="Chief Complaint">
                     <h5>Onset:</h5>
                     <div class="checkbox-group" data-group="Onset" data-exclusive="true">
                        <div class="checkbox-item">
@@ -307,7 +307,7 @@
                         </div>
                     </div>
                 </div>
-                <div data-title="Radiation">
+                <div data-title="Chief Complaint">
                     <h5>Radiation:</h5>
                     <div class="checkbox-group" data-group="Radiation" data-exclusive="true">
                        <div class="checkbox-item">
@@ -320,7 +320,7 @@
                         </div>
                     </div>
                 </div>
-                <div data-title="Character">
+                <div data-title="Chief Complaint">
                     <h5>Character:</h5>
                     <div class="checkbox-group" data-group="Character" data-exclusive="true">
                        <div class="checkbox-item">
@@ -333,7 +333,7 @@
                         </div>
                     </div>
                 </div>
-                <div data-title="Aggravating factors" data-group="Aggravating_factors">
+                <div data-title="Chief Complaint" data-group="Aggravating_factors">
                     <h5>Aggravating factors:</h5>
                     <div class="checkbox-group">
                        <div class="checkbox-item">
@@ -366,7 +366,7 @@
                     </div>
                         
                 </div>
-                <div data-title="Relieving factors">
+                <div data-title="Chief Complaint">
                     <h5>Relieving factors:</h5>
                     <div class="checkbox-group" data-group="Relieving_factors">
                        <div class="checkbox-item">
@@ -404,7 +404,7 @@
                         <input type="text" id="input6" placeholder="Specify Relation to trauma" name="Relation_to_trauma_Description" disabled>
                     </div>
                 </div>
-                <div data-title="Any H/O fever">
+                <div data-title="Relation to trauma">
                     <h5>Any H/O fever:</h5>
                     <div class="checkbox-group" data-group="Any_H/O_fever" data-exclusive="true">
                        <div class="checkbox-item">
@@ -447,7 +447,7 @@
                     </div>
                 </div>
 
-                <div data-title="Pain Severity">
+                <div data-title="Instability">
                     <h5>Pain Severity:</h5>
                     <div class="checkbox-group" data-group="Pain_Severity" data-exclusive="true">
                         <div class="checkbox-item">
@@ -506,7 +506,7 @@
                         <input type="text" placeholder="Prior Treatment Attempted" id="input7" disabled name="Prior_Treatments_Attempted">
                     </div>
                 </div>
-                <div class="form-group" data-title="Shoulder dislocation">
+                <div class="form-group" data-title="Prior Treatment Attempted">
                     <h5>Shoulder dislocation:</h5>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
@@ -515,7 +515,7 @@
                         <input type="text" placeholder="Specify Any" name="Shoulder_dislocation">
                     </div>
                 </div>
-                <div class="form-group" data-title="Pain is worst in" data-group="Pain_is_worst_in" data-exclusive="true">
+                <div class="form-group" data-title="Prior Treatment Attempted" data-group="Pain_is_worst_in" data-exclusive="true">
                     <h5>Pain is worst in:</h5>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
@@ -528,7 +528,7 @@
                         </div>
                     </div>
                 </div>
-                <div data-title="Activity of daily living">
+                <div data-title="Prior Treatment Attempted">
                     <h5>Activity of daily living:</h5>
                     <div class="form-group">
                         <textarea name="Activity_of_daily_living" placeholder="Activity of daily living"></textarea>
@@ -536,7 +536,7 @@
                 </div>
             </div>
             <div class="col">
-                <div data-title="Patient had Similiar complaint in the Past">
+                <div data-title="Prior Treatment Attempted">
                     <h5>Patient had Similiar complaint in the Past:</h5>
                     <div class="form-group">
                         <textarea  name="Patient_had_Similiar_complaint_in_the_Past" placeholder="Specify complaint"></textarea>
@@ -614,7 +614,7 @@
                 <div>
                     <h5>Past Medical History</h5>
                     <table style="box-shadow: none;">
-                        <tbody>
+                        <tbody data-title="Past Medical History">   
                             <tr>
                                 <td>
                                     <label for="">Hypertension:</label>
@@ -622,7 +622,7 @@
                                 <td>
                                     <div class="checkbox-item">
                                         <label for="" class="label1">Since:</label>
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Hypertension" placeholder="Since" style="width:45%;">
                                     </div>
                                 </td>
                             </tr>
@@ -632,7 +632,7 @@
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Thyroid" placeholder="Since" style="width:45%;">
                                         <label for="" class="label1">years ago</label>
                                     </div>
                                 </td>
@@ -644,7 +644,7 @@
                                 <td>
                                     <div class="checkbox-item">
                                         <label for="" class="label1">Since:</label>
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Diabetics" placeholder="Since" style="width:45%;">
                                     </div>
                                 </td>
                             </tr>
@@ -654,7 +654,7 @@
                                 </td>
                                 <td>
                                     <div class="checkbox-item">
-                                        <input type="text" class="inline-input" placeholder="Since" style="width:45%;">
+                                        <input type="text" class="inline-input" name="Tuberculosis" placeholder="Since" style="width:45%;">
                                         <label for="" class="label1">years ago</label>
                                     </div>
                                 </td>
@@ -668,111 +668,111 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Heart Disorder:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Heart_Disorder">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Heart_Disorder(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Liver Disease:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Liver_Disease">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Liver_Disease(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Renal Problem:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Renal_Problem">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Renal_Problem(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Gastro - Enterology:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Gastro_-_Enterology">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Gastro_-_Enterology(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Respiratory:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Respiratory">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Respiratory(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Neurology:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Neurology">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Neurology(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Previous Surgery:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Previous Surgery 1:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery_1">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Previous_Surgery_1(Since)">
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-title="Disorders">
                                 <td>
                                     <label for="">Others:</label>
                                 </td>
                                 <td>
                                     <div style="display: flex; align-items:center;gap:10px;">
-                                        <input type="text">
+                                        <input type="text" name="Other_Disorders">
                                         <label for="">Since:</label>
-                                        <input type="text">
+                                        <input type="text" name="Other_Disorders(Since)">
                                     </div>
                                 </td>
                             </tr>
@@ -798,52 +798,55 @@
     <div class="section" id="should" style="display:none;">
        <div class="row">
         <div class="col">
-            <div id="Inspectionshould">
-                <h5>Inspection</h5>
-                <div class="form-group">
-                    <textarea name="Inspection" placeholder="Specify Inspection"></textarea>
-                </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Skin:</h6>
-                <div class="form-group">
-                    <textarea name="Skin" placeholder="Specify Skin"></textarea>
-                </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Sweeling:</h6>
-                <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="No">
-                        <label for="">No</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="Yes">
-                        <label for="">Yes</label>
+            <div data-title="Inspection-shoulder">
+
+                <div id="Inspectionshould">
+                    <h5>Inspection:</h5>
+                    <div class="form-group">
+                        <textarea name="Inspection" placeholder="Specify Inspection"></textarea>
                     </div>
                 </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Asymmetry:</h6>
-                <div class="checkbox-group" data-group="Sweeling" data-exclusive="true">
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="No">
-                        <label for="">No</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" name="Sweeling" value="Yes">
-                        <label for="">Yes</label>
+                <div>
+                    <h6 style="margin-top: 10px;">Skin:</h6>
+                    <div class="form-group">
+                        <textarea name="Skin" placeholder="Specify Skin"></textarea>
                     </div>
                 </div>
-            </div>
-            <div>
-                <h6 style="margin-top: 10px;">Specific Finding:</h6>
-                <div class="form-group">
-                    <textarea name="Skin" placeholder="Specify Specific Finding"></textarea>
+                <div>
+                    <h6 style="margin-top: 10px;">Swelling:</h6>
+                    <div class="checkbox-group" data-group="Swelling" data-exclusive="true">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Swelling" value="No">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Swelling" value="Yes">
+                            <label for="">Yes</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h6 style="margin-top: 10px;">Asymmetry:</h6>
+                    <div class="checkbox-group" data-group="Asymmetry" data-exclusive="true">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Asymmetry" value="No">
+                            <label for="">No</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="Asymmetry" value="Yes">
+                            <label for="">Yes</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h6 style="margin-top: 10px;">Specific Finding:</h6>
+                    <div class="form-group">
+                        <textarea name="Specific_Finding" placeholder="Specify Specific Finding"></textarea>
+                    </div>
                 </div>
             </div>
             <h5>Palpation:</h5>
-            <div style="display: flex;gap:10px; flex-wrap: wrap;" data-title="Palpation:">
+            <div style="display: flex;gap:10px; flex-wrap: wrap;" data-title="Palpation-shoulder">
                 <div data-group="Anteriorly">
                     <div class="checkbox-item">
                         <input type="checkbox" name="anteriorly" value="checkbox" data-target="#input1">
@@ -866,8 +869,8 @@
                     <textarea  placeholder="Describe Bending" disabled id="input3" name="Posteriorly"></textarea>
                 </div>
             </div>
-            <h5>Movements</h5>
-            <table style="box-shadow:none;">
+            <h5>Movements:</h5>
+            <table style="box-shadow:none;" data-title="Movements-shoulder">
                 <thead>
                     <tr>
                         <th></th>
@@ -888,13 +891,13 @@
                     </tr>
                     <tr>
                         <td>Internal Rotation(IR):</td>
-                        <td><input type="text" name="IR_active"></td>
-                        <td><input type="text" name="IR_passive"></td>
+                        <td><input type="text" name="Internal_Rotation(IR)_active"></td>
+                        <td><input type="text" name="Internal_Rotation(IR)_passive"></td>
                     </tr>
                     <tr>
                         <td>External Rotation (ER):</td>
-                        <td><input type="text" name="ER_active"></td>
-                        <td><input type="text" name="ER_passive"></td>
+                        <td><input type="text" name="External_Rotation(ER)_active"></td>
+                        <td><input type="text" name="External_Rotation(ER)_passive"></td>
                     </tr>
                     <tr>
                         <td>Adduction:</td>
@@ -910,14 +913,14 @@
             </table>
             <h5>Other Findings:</h5>
             <div>
-                <div class="form-group">
-                    <textarea name="" placeholder="Specify Other Findings"></textarea>
+                <div class="form-group" data-title="Movements-shoulder">
+                    <textarea name="Other_Findings" placeholder="Specify Other Findings"></textarea>
                 </div>
             </div>
             
         </div>
         <div class="col">
-            <h5>Special Test</h5>
+            <h5>Special Test:</h5>
             <table style="width:85%;box-shadow:none;">
                 <tbody>
                     <tr>
@@ -928,33 +931,33 @@
                             color: white;
                             font-weight: 500;">Rotator Cuff Pathology :</td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Neer's Impingement Sign :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Neer's_Impingement_Sign"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Neer's Impingement Test :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Neer's_Impingement_Test"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Hawkins - Kennedy Test :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Hawkins_-_Kennedy_Test"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Drop Arm Test :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Drop_Arm_Test"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Herber's Test :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Herber's_Test"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Jobe's Test :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Jobe's_Test"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special Test Rotator Cuff Pathology-shoulder">
                         <td>Test for Infraspinatus & Teres Minor :</td>
-                        <td><input type="text" name=""></td>
+                        <td><input type="text" name="Test_for_Infraspinatus_&_Teres_Minor"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="
@@ -965,21 +968,21 @@
                             font-weight: 500;
                             border-radius: 10px 10px 0 0;">Test for Shoulder Instability :</td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special test for Shoulder Instability">
                         <td>Anterior Instability :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Anterior_Instability"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special test for Shoulder Instability">
                         <td>Apprehension Test :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Apprehension_Test"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special test for Shoulder Instability">
                         <td>Relocation Test (Jobe's) :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Relocation_Test_(Jobe's)"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Special test for Shoulder Instability">
                         <td>Sulcus Sign :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Sulcus_Sign"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="
@@ -990,26 +993,28 @@
                             font-weight: 500;
                             border-radius: 10px 10px 0 0;">Other System Examination :</td>
                     </tr>
-                    <tr>
+                    <tr data-title="Other System Examination-shoulder">
                         <td>Central Nervous System(CNS) :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Central_Nervous_System(CNS)"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Other System Examination-shoulder">
                         <td>Cardiovascular System(CVS) :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Cardiovascular_System(CVS)"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Other System Examination-shoulder">
                         <td>Respiratory System(RS) :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Respiratory_System(RS)"></td>
                     </tr>
-                    <tr>
+                    <tr data-title="Other System Examination-shoulder">
                         <td>Spine : Neurology :</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="Spine-Neurology"></td>
                     </tr>
                 </tbody>
             </table>
-            <h5>Proposed Diagnosis :</h5>
-            <textarea  placeholder="Describe Proposed Diagnosis" style="max-width: 65%;height:65px;" name="Proposed_Diagnosis"></textarea>
+            <div data-title="Other System Examination-shoulder">
+                <h5>Proposed Diagnosis :</h5>
+                <textarea  placeholder="Describe Proposed Diagnosis" style="max-width: 65%;height:65px;" name="Proposed_Diagnosis"></textarea>
+            </div>
 
         </div>
        </div>
@@ -1021,7 +1026,7 @@
         <div class="row">
             <div class="col">
                 <h5>Inspection :</h5>
-                <table style="width: 80%;box-shadow:none;" id="Inspectionelb">
+                <table style="width: 80%;box-shadow:none;" id="Inspectionelb" data-title="Inspection Attitude-elbow">
                     <thead>
                         <tr>
                             <td colspan="2" style="
@@ -1035,34 +1040,34 @@
                     <tbody>
                         <tr>
                             <td>From Front :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="From_Front"></td>
                         </tr>
                         <tr>
                             <td>From Lateral Aspect :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="From_Lateral_Aspect"></td>
                         </tr>
                         <tr>
                             <td>From Medical Aspect :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="From_Medical_Aspect"></td>
                         </tr>
                         <tr>
                             <td>Posterior Aspect :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Posterior_Aspect"></td>
                         </tr>
                         <tr>
                             <td>Skin :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="skin"></td>
                         </tr>
                         <tr>
                             <td>Swelling :</td>
                             <td>
-                                <div class="checkbox-group" data-group="" data-exclusive="true">
+                                <div class="checkbox-group" data-group="swelling" data-exclusive="true">
                                     <div class="checkbox-item">
-                                            <input type="checkbox" name="Swelling" value="Yes">
+                                            <input type="checkbox" name="swelling" value="Yes">
                                             <label for="">Yes</label>
                                         </div>
                                     <div class="checkbox-item">
-                                            <input type="checkbox" name="Swelling" value="No">
+                                            <input type="checkbox" name="swelling" value="No">
                                         <label for="">No</label>
                                     </div>
                                 </div>
@@ -1070,15 +1075,15 @@
                         </tr>
                         <tr>
                             <td>Asymmetry :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="asymmetry"></td>
                         </tr>
                     </tbody>
                 </table>
                 <h5>Palpation :</h5>
-                <div class="form-group">
-                    <textarea name="" placeholder="Symptoms Palpation"></textarea>
+                <div class="form-group" data-title="Palpation-elbow">
+                    <textarea placeholder="Symptoms Palpation" name="Palpation"></textarea>
                 </div>
-                <div>
+                <div data-title="Palpation-elbow">
                     <h6 style="margin-top: 10px;">Three Point Relation Ship:</h6>
                     <div class="checkbox-group" data-group="Three_Point_Relation_Ship" data-exclusive="true">
                        <div class="checkbox-item">
@@ -1094,62 +1099,65 @@
             </div>
             <div class="col">
                 <h5>Movements :</h5>
-                <table style="width:75%;box-shadow:none;">
+                <table style="width:75%;box-shadow:none;" data-title="Movements-elbow">
                     <tbody>
                         <tr>
                             <td>Flexion :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Flexion"></td>
                         </tr>
                         <tr>
                             <td>Extension :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Extension"></td>
                         </tr>
                         <tr>
                             <td>Hyper Extension :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Hyper Extension"></td>
                         </tr>
                         <tr>
                             <td>Supination :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Supination"></td>
                         </tr>
                         <tr>
                             <td>Pronation :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Pronation"></td>
                         </tr>
                     </tbody>
                 </table>
                 <h5>Special Test :</h5>
-                <table style="box-shadow:none;width:75%;">
+                <table style="box-shadow:none;width:75%;" data-title="Special Test-elbow">
                     <tbody>
                         <tr>
                             <td style="width:41%;">Varus Stress Test :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Varus_Stress_Test"></td>
                         </tr>
                         <tr>
                             <td style="width:41%;">Valgus Stress Test :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Valgus_Stress_Test"></td>
                         </tr>
                         <tr>
                             <td style="width:41%;">Pivot Shift Test :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Pivot_Shift_Test"></td>
                         </tr>
                         <tr>
                             <td style="width:41%;">Test for Lateral Epicondylitis :</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="Test_for_Lateral_Epicondylitis"></td>
                         </tr>
                     </tbody>
                 </table>
-                <h5>Other System Examination :</h5>
-                <textarea  placeholder="Describe Other System Examination" style="max-width: 65%;height:65px;" name=""></textarea>
-                <h5>Diagnosis :</h5>
-                <textarea  placeholder="Describe Diagnosis" style="max-width: 65%;height:65px;" name=""></textarea>
+                <div data-title="Other System Examination-elbow">
+                    <h5>Other System Examination :</h5>
+                    <textarea  placeholder="Describe Other System Examination" style="max-width: 65%;height:65px;" name="Other_System_Examination"></textarea>
+                </div>
+                <div data-title="Other System Examination-elbow">
+                    <h5>Diagnosis :</h5>
+                    <textarea  placeholder="Describe Diagnosis" style="max-width: 65%;height:65px;" name="Diagnosis"></textarea>
+                </div>
             </div>
         </div>
         <div style="display: flex;justify-content:center;margin-top:20px;">
             <button type="submit" class="btn btn-success" style="font-size: 25px;width: 200px;">Save</button>
         </div>
     </div>
-    
 </form>
 <script src="{{ asset('Sweetalerts/sweetalert2.all.min.js') }}"></script>
 @php
@@ -1315,6 +1323,7 @@ $regnos= optional($patDetails)->REG_NO;
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
+                    allowOutsideClick: false,
                     text: response.message || 'Form submitted successfully!',
                     confirmButtonText: 'OK'
                 }).then(function () {
@@ -1325,6 +1334,7 @@ $regnos= optional($patDetails)->REG_NO;
                 var message = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Something went wrong!';
                 Swal.fire({
                     icon: 'error',
+                    allowOutsideClick: false,
                     title: 'Oops...',
                     text: message
                 });
@@ -1341,7 +1351,7 @@ $regnos= optional($patDetails)->REG_NO;
             var key = pair[0];
             var value = pair[1];
             if (!value) continue;
-
+            
             var inputEl = formElement.querySelector('[name="' + CSS.escape(key) + '"][value="' + CSS.escape(value) + '"]') 
                 || formElement.querySelector('[name="' + CSS.escape(key) + '"]');
 
@@ -1351,6 +1361,7 @@ $regnos= optional($patDetails)->REG_NO;
                     var errorname = relatedInput.getAttribute('name').replace(/_/g, " ");
                     Swal.fire({
                         icon: 'error',
+                        allowOutsideClick: false,
                         title: 'Required Field Missing',
                         text: (errorname || 'This field') + ' is required.',
                     }).then(function () {
@@ -1414,6 +1425,7 @@ $regnos= optional($patDetails)->REG_NO;
         if (!hasValue) {
             Swal.fire({
                 icon: 'warning',
+                allowOutsideClick: false,
                 title: 'No fields selected!',
                 text: 'Please select at least one field and fill in related values if required.',
             });

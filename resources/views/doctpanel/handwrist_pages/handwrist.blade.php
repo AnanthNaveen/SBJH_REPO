@@ -891,13 +891,13 @@
             });
         });
     });
-
     document.getElementById('handandwrist').addEventListener('submit', function(e) {
     e.preventDefault();
     const json = getFormDataAsJSON(this); 
     if (!json) return;
 
     $.ajax({
+        
         url: '{{ route('save.handwrist.details') }}',  
         type: 'POST',
         data: JSON.stringify(json),                      
