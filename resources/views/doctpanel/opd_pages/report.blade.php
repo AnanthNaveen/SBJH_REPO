@@ -865,7 +865,147 @@
                     @endphp
                     @if(!empty($finalText))
                     <p class="dynamic-text">{!! $finalText !!}</p>
-                @endif
+                    @endif
+                    @elseif($recordata->type === 'shoulder_elbow')
+                    @if ($recordata->type === 'shoulder_elbow' && $title === 'Movements-shoulder')
+                            @php
+                                $muscles = ['Flexion','Extension','Internal_Rotation(IR)','External_Rotation(ER)','Adduction','Abduction'];
+                                // Check if at least one muscle has data
+                                $hasData = false;
+                                
+                                foreach ($muscles as $muscle) {
+                                    if (!empty($contents[$muscle . '_active']) || !empty($contents[$muscle . '_passive'])) {
+                                        $hasData = true;
+                                        break;
+                                    }
+                                }
+                            @endphp
+                            @if ($hasData)
+                                <div class="table-responsive mb-3">
+                                    <table class="table table-bordered table-striped align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Active</th>
+                                                <th>Pasive</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($muscles as $muscle)
+                                                @php
+                                                    $right = $contents[$muscle . '_active'] ?? null;
+                                                    $left = $contents[$muscle . '_passive'] ?? null;
+                                                @endphp
+                                                @if ($right || $left)
+                                                    <tr>
+                                                        <td>{{ str_replace('_', ' ', $muscle) }}</td>
+                                                        <td>{{ $right ?? '-' }}</td>
+                                                        <td>{{ $left ?? '-' }}</td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @endif
+                        @endif
+                    @php
+                    $templates_handwrist= [
+                        'dominant_hand' => "The patient's dominant hand is <b>:value</b>",
+                        'chief_complaints' => 'The patient presented with <b>:value</b>',
+                        'side'                 => "Affected side is <b>:value</b>",
+                        'onset'                => "onset was <b>:value</b>",
+                        'duration'             => "symptoms have been present for <b>:value</b>",
+                        'character_pain'       => "pain is described as <b>:value</b>",
+                        'Aggravating_factors'  => "<br>Pain is aggravated by <b>:value</b>",
+                        'Aggravating_factors_other' => "additional details reported as <b>:value</b>",
+                        'relieving_factors'    => "Pain is relieved by <b>:value</b>",
+                        'relieving_factors_others' => "additional details reported as <b>:value</b>",
+                        'relation_to_trauma'   => "had a history of trauma <b>:value</b>",
+                        'history_of_feveryes'   => " <br>The patient had a fever <b>:value</b>",
+                        'history_fever_yes'    => "with a <b>:value</b>",
+                        'history_of_feverno'   => "<br>The patient did not have any fever",
+                        'pain_severity'        => "reports a pain severity of <b>:value</b>",
+                        'pain_worst'           => "Pain is worst in <b>:value</b>",
+                        'treatment_attempted'  => "previously attempted <b>:value</b>",
+                        'activities_daily_living' => "reports <b>:value</b>",
+                        'patient_complaints_past' => " had similar complaints in the past <b>:value</b>",
+                        'fatigue'              => "Report as <b>:value</b> ",
+                        'fatigue_yes'          => "has <b>:value</b>",
+                        'bladder'                => "has <b>:value</b> bladder symptoms",
+                        'bowel'                 => "has <b>:value</b> bowel symptoms",
+                        'fever'                 => "has <b>:value</b> fever",
+                        'weight_loss'           => "reports <b>:value</b> weight loss",
+                        'weight_gain'           => "reports <b>:value</b> weight gain",
+                        'loss_appetite'         => "has <b>:value</b> loss of appetite",
+                        'Other_Complaint'      => "also reports <b>:value</b>",
+                        'Hypertension'         => "has hypertension since <b>:value</b>",
+                        'Thyroid'              => "has a thyroid disorder for <b>:value</b>",
+                        'Diabetics'            => "has diabetes since <b>:value</b>",
+                        'Tuberculosis'         => "has a history of tuberculosis for <b>:value</b>",
+                        'Heart_Disorder'       => "has a heart disorder <b>:value</b>",
+                        'Heart_Disorder_since' => "since <b>:value</b>",
+                        'Liver_Disease'        => "has liver disease <b>:value</b>",
+                        'Liver_Disease_since'  => "since <b>:value</b>",
+                        'Renal_Problem'        => " has a renal problem <b>:value</b>",
+                        'Renal_Problem_since'  => "since <b>:value</b>",
+                        'Gastro_Enterology'    => "has a gastro-enterology issue <b>:value</b>",
+                        'Gastro_Enterology_since' => "since <b>:value</b>",
+                        'Respiratory'          => "has a respiratory issue <b>:value</b>",
+                        'Respiratory_since'    => "since <b>:value</b>",
+                        'Neurology'            => "has a neurological issue <b>:value</b>",
+                        'Neurology_since'      => " since <b>:value</b>",
+                        'Previous_Surgery'     => "underwent surgery <b>:value</b>",
+                        'Previous_Surgery_since' => "since <b>:value</b>",
+                        'Previous_Surgery_1'   => " underwent surgery-1 <b>:value</b>",
+                        'Previous_Surgery_1_since' => "since<b>:value</b>",
+                        'Other'                => "additionally reports the <b>:value</b>",
+                        'Other_since'          => "since <b>:value</b>",
+                        'Alcohol' => "consumes alcohol <b>:value</b>",
+                        'Smoking' => "smokes <b>:value</b>",
+                        'Job' => "works as <b>:value</b>",
+                        'Sports' => "plays <b>:value</b>",
+                        'Others' => "other activities include <b>:value</b>",
+                        'Allergies'  => "has allergies: <b>:value</b>",
+                        'Inspection' => "inspection shows <b>:value</b>",
+                        'Palpation' => "palpation reveals <b>:value</b>",
+                        'Deformity' => "deformity observed <b>:value</b>",
+                        'Dorsiflexion' => "dorsiflexion is <b>:value</b>",
+                        'Palmar_Flexion' => "palmar flexion is <b>:value</b>",
+                        'finger_movements' => "finger movements are <b>:value</b>",
+                        'thumb_movements' => "thumb movements are <b>:value</b>",
+                        'tinel_sign' => "shows Tinel's sign <b>:value</b>",
+                        'phalen_test' => " Phalen's test <b>:value</b>",
+                        'Durkan_Compression_Test' => " Durkan's compression test <b>:value</b>",
+                        'Finkelstein_Test' => " Finkelstein's test <b>:value</b>",
+                        'DRUJ_Instability_Test' => " DRUJ instability test <b>:value</b>",
+                        'diagnosis' => "has a diagnosis of  <b>:value</b> "
+                        ];
+                        $sentences2 = [];
+                        foreach ($contents as $field => $value) {
+                            if (isset($templates_handwrist[$field]) && !empty($value)) {
+                                $sentence = str_replace(':value', str_replace('_', ' ', strtolower($value)), $templates_handwrist[$field]);
+                                $sentences2[] = trim($sentence);
+                            }
+                        }
+                        $finalText = '';
+                        if (!empty($sentences2)) {
+                            if (count($sentences2) > 1) {
+                            $text = implode(', ', array_slice($sentences2, 0, -1)) . ', ' . end($sentences2) . '.';
+                            }  elseif (count($sentences2) === 1) {
+                            $text = $sentences2[0] . '.';
+                            }
+                            if (!preg_match('/^the patient/i', $text)) {
+                                $text = 'The patient ' . ltrim($text, ', ');
+                            }
+                            $finalText = ucfirst($text);
+                        }
+                    @endphp
+                    @if($finalText)
+                        <p class="dynamic-text">
+                            {!! $finalText !!}
+                        </p>
+                    @endif
                 @endif
             </div>
         @endforeach
