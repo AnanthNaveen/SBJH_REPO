@@ -866,7 +866,7 @@
                     @if(!empty($finalText))
                     <p class="dynamic-text">{!! $finalText !!}</p>
                     @endif
-                    @elseif($recordata->type === 'shoulder_elbow')
+                @elseif($recordata->type === 'shoulder_elbow')
                     @if ($recordata->type === 'shoulder_elbow' && $title === 'Movements-shoulder')
                             @php
                                 $muscles = ['Flexion','Extension','Internal_Rotation(IR)','External_Rotation(ER)','Adduction','Abduction'];
