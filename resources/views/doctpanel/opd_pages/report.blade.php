@@ -691,6 +691,183 @@
                             </div>
                         @endif
                     @endif
+                @elseif($recordata->type === 'shoulder_elbow')
+                @if ($recordata->type === 'shoulder_elbow' && $title === 'Movements-shoulder')
+                        @php
+                            $muscles = ['Flexion','Extension','Internal_Rotation(IR)','External_Rotation(ER)','Adduction','Abduction'];
+                            // Check if at least one muscle has data
+                            $hasData = false;
+                            
+                            foreach ($muscles as $muscle) {
+                                if (!empty($contents[$muscle . '_active']) || !empty($contents[$muscle . '_passive'])) {
+                                    $hasData = true;
+                                    break;
+                                }
+                            }
+                        @endphp
+                        @if ($hasData)
+                            <div class="table-responsive mb-3">
+                                <table class="table table-bordered table-striped align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Active</th>
+                                            <th>Pasive</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($muscles as $muscle)
+                                            @php
+                                                $right = $contents[$muscle . '_active'] ?? null;
+                                                $left = $contents[$muscle . '_passive'] ?? null;
+                                            @endphp
+                                            @if ($right || $left)
+                                                <tr>
+                                                    <td>{{ str_replace('_', ' ', $muscle) }}</td>
+                                                    <td>{{ $right ?? '-' }}</td>
+                                                    <td>{{ $left ?? '-' }}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
+                    @endif
+                    @php
+                        $templates_shoulder_elbow = [
+                            'Chief_Complaint' => 'The Patient presented with <b>:value</b>',
+                            'Side' => 'involving the <b>:value</b> side',
+                            'Symptoms_Duration' => 'for the past <b>:value</b>',
+                            'Onset' => 'with <b>:value</b> onset',
+                            'Radiation' => 'with radiation of pain to the <b>:value</b>',
+                            'Character' => 'pain of <b>:value</b> character',
+                            'Aggravating_factors' => 'aggravated by <b>:value</b>',
+                            'Aggravating_factors_others' => 'specifically aggravated by <b>:value</b>',
+                            'Relieving_factors' => 'relieved by <b>:value</b>',
+                            'Relieving_factors_Others' => 'specifically relieved by <b>:value</b>',
+                            'Relation_to_trauma' => 'with history of trauma <b>:value</b>',
+                            'Relation_to_trauma_Description' => 'with description of trauma as <b>:value</b>',
+                            'Any_H/O_fever' => 'with history of fever <b>:value</b>',
+                            'Instability' => 'with complaint of instability being <b>:value</b>',
+                            'Onset_&_Duration' => 'with onset and duration being <b>:value</b>',
+                            'Associated_Movements' => 'associated with movements such as <b>:value</b>',
+                            'How_Frequent' => 'occurring with a frequency of <b>:value</b>',
+                            'No_of_Dislocation' => 'with number of dislocations being <b>:value</b>',
+                            'Pain_Severity' => 'with pain severity rated as <b>:value</b>',
+                            'Prior_Treatments_Attempted' => 'with prior treatments attempted including <b>:value</b>',
+                            'Prior_Treatment_Attempted' => 'with no prior treatments attempted',
+                            'Shoulder_dislocation' => 'history of shoulder dislocation as <b>:value</b>',
+                            'Pain_is_worst_in' => 'pain is worst in the <b>:value</b>',
+                            'Activity_of_daily_living' => 'affecting activities of daily living such as <b>:value</b>',
+                            'Patient_had_Similiar_complaint_in_the_Past' => 'with a history of similar complaints in the past being <b>:value</b>',
+                            'fatigue' => 'with <b>:value</b> fatigue',
+                            'Fatigue' => 'complaints of fatigue including <b>:value</b>',
+                            'Bladder' => 'with bladder complaints such as <b>:value</b>',
+                            'Bowel' => 'with bowel complaints such as <b>:value</b>',
+                            'Fever' => 'with complaints of fever <b>:value</b>',
+                            'Weight_loss' => 'with complaints of weight loss <b>:value</b>',
+                            'Weight_gain' => 'with complaints of weight gain <b>:value</b>',
+                            'Loss_of_Appetite' => 'with complaints of loss of appetite <b>:value</b>',
+                            'Others' => 'with other complaints including <b>:value</b>',
+                            'Alcohol' => 'with history of alcohol use as <b>:value</b>',
+                            'Smoking' => 'with history of smoking as <b>:value</b>',
+                            'Job' => 'with occupation being <b>:value</b>',
+                            'Sports' => 'with participation in sports such as <b>:value</b>',
+                            'Personal_History_Others' => 'with other personal history including <b>:value</b>',
+                            'Hypertension' => 'with history of hypertension Since <b>:value</b>',
+                            'Thyroid' => 'with history of thyroid disorder for <b>:value</b>',
+                            'Diabetics' => 'with history of diabetes Since <b>:value</b>',
+                            'Tuberculosis' => 'with history of tuberculosis for <b>:value</b>',
+                            'Heart_Disorder' => 'with history of heart disorder <b>:value</b>',
+                            'Heart_Disorder(Since)' => 'since <b>:value</b>',
+                            'Liver_Disease' => 'with history of liver disease <b>:value</b>',
+                            'Liver_Disease(Since)' => 'since <b>:value</b>',
+                            'Renal_Problem' => 'with history of renal problem <b>:value</b>',
+                            'Renal_Problem(Since)' => 'since <b>:value</b>',
+                            'Gastro_-_Enterology' => 'with history of gastroenterology disorder <b>:value</b>',
+                            'Gastro_-_Enterology(Since)' => 'since <b>:value</b>',
+                            'Respiratory' => 'with history of respiratory disorder <b>:value</b>',
+                            'Respiratory(Since)' => 'since <b>:value</b>',
+                            'Neurology' => 'with history of neurological disorder <b>:value</b>',
+                            'Neurology(Since)' => 'since <b>:value</b>',
+                            'Previous_Surgery' => 'with history of previous surgery <b>:value</b>',
+                            'Previous_Surgery(Since)' => 'since <b>:value</b>',
+                            'Previous_Surgery_1' => 'with history of previous surgery <b>:value</b>',
+                            'Previous_Surgery_1(Since)' => 'since <b>:value</b>',
+                            'Other_Disorders' => 'with history of other disorders <b>:value</b>',
+                            'Other_Disorders(Since)' => 'since <b>:value</b>',
+                            'Inspection' => 'on inspection of the shoulder <b>:value</b>',
+                            'Skin' => 'skin over the shoulder showing <b>:value</b>',
+                            'Swelling' => 'with swelling being <b>:value</b>',
+                            'Asymmetry' => 'with asymmetry noted as <b>:value</b>',
+                            'Specific_Finding' => 'specific findings on shoulder inspection include <b>:value</b>',
+                            'Anteriorly' => 'on palpation anteriorly <b>:value</b>',
+                            'Lateral_Aspect' => 'on palpation over the lateral aspect <b>:value</b>',
+                            'Posteriorly' => 'on palpation posteriorly <b>:value</b>',
+                            'Other_Findings' => 'other findings on shoulder examination include <b>:value</b>',
+                            'Neer\'s_Impingement_Sign' => 'Neer\'s impingement sign shows <b>:value</b>',
+                            'Neer\'s_Impingement_Test' => 'Neer\'s impingement test reveals <b>:value</b>',
+                            'Hawkins_-_Kennedy_Test' => 'Hawkins-Kennedy test demonstrates <b>:value</b>',
+                            'Drop_Arm_Test' => 'Drop Arm test indicates <b>:value</b>',
+                            'Herber\'s_Test' => 'Herber\'s test shows <b>:value</b>',
+                            'Jobe\'s_Test' => 'Jobe\'s test reveals <b>:value</b>',
+                            'Test_for_Infraspinatus_&_Teres_Minor' => 'Test for infraspinatus and teres minor shows <b>:value</b>',
+                            'Anterior_Instability' => 'anterior instability test shows <b>:value</b>',
+                            'Apprehension_Test' => 'apprehension test demonstrates <b>:value</b>',
+                            'Relocation_Test_(Jobe\'s)' => 'relocation test (Jobe\'s) reveals <b>:value</b>',
+                            'Sulcus_Sign' => 'Sulcus sign indicates <b>:value</b>',
+                            'Central_Nervous_System(CNS)' => 'central nervous system examination reveals <b>:value</b>',
+                            'Cardiovascular_System(CVS)' => 'cardiovascular system examination shows <b>:value</b>',
+                            'Respiratory_System(RS)' => 'respiratory system examination indicates <b>:value</b>',
+                            'Spine-Neurology' => 'spine and neurological examination demonstrates <b>:value</b>',
+                            'Proposed_Diagnosis' => '<br>proposed diagnosis includes <b>:value</b>',
+                            'From_Front' => 'on inspection from the front <b>:value</b>',
+                            'From_Lateral_Aspect' => 'on inspection from the lateral aspect <b>:value</b>',
+                            'From_Medical_Aspect' => 'on inspection from the medial aspect <b>:value</b>',
+                            'Posterior_Aspect' => 'on inspection from the posterior aspect <b>:value</b>',
+                            'skin' => 'skin over the elbow showing <b>:value</b>',
+                            'swelling' => 'with swelling being <b>:value</b>',
+                            'asymmetry' => 'with asymmetry noted as <b>:value</b>',
+                            'Palpation' => 'on palpation of the elbow <b>:value</b>',
+                            'Three_Point_Relation_Ship' => 'three point relationship of the elbow appears <b>:value</b>',
+                            'Flexion' => 'flexion of the elbow is <b>:value</b>',
+                            'Extension' => 'extension of the elbow is <b>:value</b>',
+                            'Hyper_Extension' => 'hyperextension of the elbow is <b>:value</b>',
+                            'Supination' => 'supination of the elbow is <b>:value</b>',
+                            'Pronation' => 'pronation of the elbow is <b>:value</b>',
+                            'Varus_Stress_Test' => 'varus stress test shows <b>:value</b>',
+                            'Valgus_Stress_Test' => 'valgus stress test shows <b>:value</b>',
+                            'Pivot_Shift_Test' => 'pivot shift test reveals <b>:value</b>',
+                            'Test_for_Lateral_Epicondylitis' => 'test for lateral epicondylitis demonstrates <b>:value</b>',
+                            'Other_System_Examination' => 'other system examination of the elbow reveals <b>:value</b>',
+                            'Diagnosis' => '<br>proposed diagnosis for the elbow includes <b>:value</b>',
+                            ];
+                            $sentences = [];
+
+                            foreach ($contents as $field => $value) {
+                                if (isset($templates_shoulder_elbow[$field])) {
+                                    $sentence = ucfirst(str_replace(':value', str_replace('_', ' ', strtolower($value)), $templates_shoulder_elbow[$field]));
+                                    $sentences[] = $sentence;
+                                }
+                            }
+
+                            $finalText = '';
+                            if (count($sentences) > 1) {
+                                // Join with commas, but put a full stop at the end
+                                //here array slice grab all items except the last one 
+                                //implode convert array into string
+                                $finalText = implode(', ', array_slice($sentences, 0, -1)) . ', ' . end($sentences) . '.';
+                            } elseif (count($sentences) === 1) {
+                                $finalText = $sentences[0] . '.';
+                            }
+                    @endphp
+                    @if($finalText)
+                        <p class="dynamic-text">
+                            {!! $finalText !!}
+                        </p>
+                    @endif
+                    
                 @endif
             </div>
         @endforeach
