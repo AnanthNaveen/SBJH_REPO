@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,129 +9,216 @@
     <title>Patient Report</title>
     <style>
         body {
-            font-family: "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .report-container {
+            max-width: 220mm;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
+        }
+        .nav-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .nav-btn {
+            padding: 8px 16px;
+            background: #3d91eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .nav-btn:hover {
+            background: #3d91eb;
+            color: white;
+        }
+        /* Header */
+        .report-header {
+            text-align: center;
+         margin-bottom: 30px; 
+            /* padding-top: 20px;
+            border-top: 2px solid #333; */ 
+        }
+        .report-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        /* Patient Info */
+        .patient-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+        .patient-info table {
+            width: 100%;
+            margin: 0;
+        }
+        .patient-info td {
+            padding: 5px 15px;
+            font-size: 14px;
+        }
+
+        .patient-info strong {
             color: #333;
         }
-        
-        .report-header {
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
+        .section-block {
             margin-bottom: 25px;
         }
 
-        .patient-info p {
-            margin: 2px 0;
-            font-size: 15px;
-        }
-
-        h2 {
-            font-size: 28px;
+        .section-title {
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 0;
-        }
-
-        h6 {
-            margin-top: 25px;
+            color: #333;
+            margin: 0 0 10px 0;
             padding-bottom: 5px;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid #333;
+        }
+        .section-content {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #333;
+            text-align: justify;
+        }
+        .section-content b {
+            color: #000;
+        }
+        /* Tables */
+        .data-table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .data-table th {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .data-table td {
+            padding: 8px 10px;
+            border: 1px solid #dee2e6;
+        }
+        .data-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .signature-content {
+            display: none;
         }
 
-        .dynamic-text {
-            margin: 6px 0;
-            line-height: 1.6;
+        @media (max-width: 768px) {
+            .report-container {
+                padding: 25px;
+                box-shadow: none;
+            }
+            .patient-info table {
+                display: block;
+            }
+            .patient-info tr {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .patient-info td {
+                display: block;
+                padding: 3px 0;
+            }
         }
-
-        .navigatebutton {
-            position: absolute;
-            margin-left: 5px;
-        }
-
         @media print {
-
-            /* Keep headings with the next block */
-            /* h6 {
+            .report-header {
+                text-align: center;
+                margin-bottom: 30px; 
+                padding-top: 20px;
+                border-top: 2px solid #333;  
+            }
+            .signature-content {
+                display: block !important;
+                margin-top: 100px;
+                text-align: right;
+            }
+            h6 {
                 page-break-after: avoid;
                 break-after: avoid;
-            } */
-
-            /* h6+* {
+            }
+            h6+* {
                 page-break-before: avoid;
                 page-break-inside: avoid;
                 break-inside: avoid;
-            } */
-
-            /* Avoid breaking inside sections */
-            /* .dynamic-text,
+            }
+            .dynamic-text,
             .table,
             .table-responsive {
                 page-break-inside: avoid;
                 break-inside: avoid;
-            } */
-
-            /* Optional: ensure each major section has some spacing */
-            /* .section-block {
+            }
+            .section-block {
                 page-break-inside: avoid;
                 break-inside: avoid;
                 margin-bottom: 12px;
-            } */
+            }
             @page {
                 margin-top: 100px;
             }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Arial, sans-serif;
+                font-size: 15px;
+            }
+            .report-container {
+                padding-bottom: 50px; /* space for footer */
+            }
+            .page {
+                page-break-after: always;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
         }
-        
     </style>
 </head>
-
 <body>
-    <div class="navigatebutton">
-        
-       <a href="{{ route('report.show', ['regno' => $recordata->regno]) }}" 
-        class="btn btn-outline-primary d-print-none">
-        <i class="bi bi-box-arrow-in-left"></i> Back
-        </a>
-        <a href="{{ url('reception/reglist') }}" class="btn btn-outline-success me-3 d-print-none">
-            <i class="bi bi-box-arrow-in-left"></i>Home
-        </a>
+    <div class="nav-buttons d-print-none">
+        <a href="{{ route('report.show', ['regno' => $recordata->regno]) }}" class="btn d-print-none nav-btn">← Back</a>
+        <a href="{{ url('reception/reglist') }}" class="btn d-print-none nav-btn">Home</a>
+        <a href="" class="nav-btn d-print-none" onclick="window.print()">Print</a>
     </div>
-    <div class="container">
-        <h3 style="font-weight: bold; text-align:center; margin-bottom:35px;">
-            {{ \Illuminate\Support\Str::title(str_replace('_', ' ', $recordata->type)) }} Report
-        </h3>
-
-        <!-- Patient Info -->
-        <table class="container" style="background: none;text-align:center">
-            <tbody>
-                <tr>
-                    <td>
-                        <p><strong>Patient Name:</strong> {{ $recordata->name }}</p>
-                    </td>
-                    <td>
-                        <p><strong>Reg No:</strong> {{ $recordata->regno }}</p>
-                    </td>
-                    <td>
-                        <p><strong>Age:</strong> {{ $recordata->age }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><strong>Sex:</strong> {{ $recordata->sex }}</p>
-                    </td>
-                    <td>
-                        <p><strong>Consultant:</strong> {{ $recordata->consultant }}</p>
-                    </td>
-                    <td>
-                        <p><strong>Date of Evaluation:</strong> {{ $recordata->created_at->format('d-m-Y h:i A') }}</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- Dynamic Sections -->
+    <div class="report-container">
+        <!-- Header -->
+        <div class="report-header">
+            <h1 class="report-title"> {{ \Illuminate\Support\Str::title(str_replace('_', ' ', $recordata->type)) }} Report</h1>
+        </div>
+        <div class="patient-info">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>Patient Name:</strong> {{ $recordata->name }}</td>
+                        <td><strong>Reg No:</strong>  {{ $recordata->regno }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Age:</strong> {{ $recordata->age }}</td>
+                        <td><strong>Sex:</strong>  {{ $recordata->sex }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consultant:</strong>{{ $recordata->consultant }}</td>
+                        <td><strong>Date of Evaluation:</strong> {{ $recordata->created_at->format('d-m-Y h:i A') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <!-- Dynamic Sections -->
         @foreach ($grouped as $title => $contents)
-            <div class="section-block">
-                <h6><b>{{ $title }}</b></h6>
+            <div class="section-block mt-3">
+                <h6><b>{{ $title }}:</b></h6>
                 {{-- Motor Strength --}}
                 @if($recordata->type === 'spine')
                     @if ( $title === 'Motor Strength')
@@ -177,7 +263,6 @@
                             </div>
                         @endif
                     @endif
-
                     {{-- Special Test --}}
                         @if ( $title === 'Special Test')
                         @php
@@ -348,7 +433,6 @@
                             'Plan_of_Care' => 'plan of care is <b>:value</b>',
                         ];                 
                         $sentences = [];
-
                         foreach ($contents as $field => $value) {
                             if (isset($templates[$field])) {
                                 $sentence = ucfirst(str_replace(':value', str_replace('_', ' ', strtolower($value)), $templates[$field]));
@@ -369,7 +453,6 @@
                         {!! $finalText !!}
                     </p>
                     @endif
-
                 @elseif($recordata->type === 'spinal_deformity')
                     @php
                         // $templates_spinal_deformity = [
@@ -584,14 +667,12 @@
                         ];
 
                     $sentences = [];
-
                         foreach ($contents as $field => $value) {
                             if (isset($templates_spinal_deformity[$field])) {
                                 $sentence = ucfirst(str_replace(':value', str_replace('_', ' ', strtolower($value)), $templates_spinal_deformity[$field]));
                                 $sentences[] = $sentence;
                             }
                         }
-                        
                         $finalText = '';
                         if (count($sentences) > 1) {
                             // Join with commas, but put a full stop at the end
@@ -600,13 +681,11 @@
                             $finalText = $sentences[0] . '.';
                         }
                     @endphp
-
                     @if($finalText)
                         <p class="dynamic-text">
                             {!! $finalText !!}
                         </p>
                     @endif
-
                     @if ($recordata->type === 'spinal_deformity' && $title === 'Motor Strength')
                         @php
                             $muscles = ['Deltoid','Biceps','Triceps','Wrist_Ex','Grip','Fing_Abd'];
@@ -625,7 +704,7 @@
                                 <table class="table table-bordered table-striped align-middle">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th></th>
                                             <th>Right</th>
                                             <th>Left</th>
                                         </tr>
@@ -667,7 +746,7 @@
                                 <table class="table table-bordered table-striped align-middle">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th></th>
                                             <th>Right</th>
                                             <th>Left</th>
                                         </tr>
@@ -691,49 +770,145 @@
                             </div>
                         @endif
                     @endif
-                @elseif($recordata->type === 'shoulder_elbow')
-                @if ($recordata->type === 'shoulder_elbow' && $title === 'Movements-shoulder')
-                        @php
-                            $muscles = ['Flexion','Extension','Internal_Rotation(IR)','External_Rotation(ER)','Adduction','Abduction'];
-                            // Check if at least one muscle has data
-                            $hasData = false;
-                            
-                            foreach ($muscles as $muscle) {
-                                if (!empty($contents[$muscle . '_active']) || !empty($contents[$muscle . '_passive'])) {
-                                    $hasData = true;
-                                    break;
-                                }
+                @elseif($recordata->type === 'hand_wrist')
+                    @php
+                    $templates_handwrist= [
+                        'dominant_hand' => "The patient's dominant hand is <b>:value</b>",
+                        'chief_complaints' => 'The patient presented with <b>:value</b>',
+                        'side'                 => "Affected side is <b>:value</b>",
+                        'onset'                => "onset was <b>:value</b>",
+                        'duration'             => "symptoms have been present for <b>:value</b>",
+                        'character_pain'       => "pain is described as <b>:value</b>",
+                        'Aggravating_factors'  => "<br>Pain is aggravated by <b>:value</b>",
+                        'Aggravating_factors_other' => "additional details reported as <b>:value</b>",
+                        'relieving_factors'    => "Pain is relieved by <b>:value</b>",
+                        'relieving_factors_others' => "additional details reported as <b>:value</b>",
+                        'relation_to_trauma'   => "had a history of trauma <b>:value</b>",
+                        'history_of_feveryes'   => " <br>The patient had a fever <b>:value</b>",
+                        'history_fever_yes'    => "with a <b>:value</b>",
+                        'history_of_feverno'   => "<br>The patient did not have any fever",
+                        'pain_severity'        => "reports a pain severity of <b>:value</b>",
+                        'pain_worst'           => "Pain is worst in <b>:value</b>",
+                        'treatment_attempted'  => "previously attempted <b>:value</b>",
+                        'activities_daily_living' => "reports <b>:value</b>",
+                        'patient_complaints_past' => " had similar complaints in the past <b>:value</b>",
+                        'fatigue'              => "Report as <b>:value</b> ",
+                        'fatigue_yes'          => "has <b>:value</b>",
+                        'bladder'                => "has <b>:value</b> bladder symptoms",
+                        'bowel'                 => "has <b>:value</b> bowel symptoms",
+                        'fever'                 => "has <b>:value</b> fever",
+                        'weight_loss'           => "reports <b>:value</b> weight loss",
+                        'weight_gain'           => "reports <b>:value</b> weight gain",
+                        'loss_appetite'         => "has <b>:value</b> loss of appetite",
+                        'Other_Complaint'      => "also reports <b>:value</b>",
+                        'Hypertension'         => "has hypertension since <b>:value</b>",
+                        'Thyroid'              => "has a thyroid disorder for <b>:value</b>",
+                        'Diabetics'            => "has diabetes since <b>:value</b>",
+                        'Tuberculosis'         => "has a history of tuberculosis for <b>:value</b>",
+                        'Heart_Disorder'       => "has a heart disorder <b>:value</b>",
+                        'Heart_Disorder_since' => "since <b>:value</b>",
+                        'Liver_Disease'        => "has liver disease <b>:value</b>",
+                        'Liver_Disease_since'  => "since <b>:value</b>",
+                        'Renal_Problem'        => " has a renal problem <b>:value</b>",
+                        'Renal_Problem_since'  => "since <b>:value</b>",
+                        'Gastro_Enterology'    => "has a gastro-enterology issue <b>:value</b>",
+                        'Gastro_Enterology_since' => "since <b>:value</b>",
+                        'Respiratory'          => "has a respiratory issue <b>:value</b>",
+                        'Respiratory_since'    => "since <b>:value</b>",
+                        'Neurology'            => "has a neurological issue <b>:value</b>",
+                        'Neurology_since'      => " since <b>:value</b>",
+                        'Previous_Surgery'     => "underwent surgery <b>:value</b>",
+                        'Previous_Surgery_since' => "since <b>:value</b>",
+                        'Previous_Surgery_1'   => " underwent surgery-1 <b>:value</b>",
+                        'Previous_Surgery_1_since' => "since<b>:value</b>",
+                        'Other'                => "additionally reports the <b>:value</b>",
+                        'Other_since'          => "since <b>:value</b>",
+                        'Alcohol' => "consumes alcohol <b>:value</b>",
+                        'Smoking' => "smokes <b>:value</b>",
+                        'Job' => "works as <b>:value</b>",
+                        'Sports' => "plays <b>:value</b>",
+                        'Others' => "other activities include <b>:value</b>",
+                        'Allergies'  => "has allergies: <b>:value</b>",
+                        'Inspection' => "inspection shows <b>:value</b>",
+                        'Palpation' => "palpation reveals <b>:value</b>",
+                        'Deformity' => "deformity observed <b>:value</b>",
+                        'Dorsiflexion' => "dorsiflexion is <b>:value</b>",
+                        'Palmar_Flexion' => "palmar flexion is <b>:value</b>",
+                        'finger_movements' => "finger movements are <b>:value</b>",
+                        'thumb_movements' => "thumb movements are <b>:value</b>",
+                        'tinel_sign' => "shows Tinel's sign <b>:value</b>",
+                        'phalen_test' => " Phalen's test <b>:value</b>",
+                        'Durkan_Compression_Test' => " Durkan's compression test <b>:value</b>",
+                        'Finkelstein_Test' => " Finkelstein's test <b>:value</b>",
+                        'DRUJ_Instability_Test' => " DRUJ instability test <b>:value</b>",
+                        'diagnosis' => "has a diagnosis of  <b>:value</b> "
+                        ];
+                        $sentences2 = [];
+                        foreach ($contents as $field => $value) {
+                            if (isset($templates_handwrist[$field]) && !empty($value)) {
+                                $sentence = str_replace(':value', str_replace('_', ' ', strtolower($value)), $templates_handwrist[$field]);
+                                $sentences2[] = trim($sentence);
                             }
-                        @endphp
-                        @if ($hasData)
-                            <div class="table-responsive mb-3">
-                                <table class="table table-bordered table-striped align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Active</th>
-                                            <th>Pasive</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($muscles as $muscle)
-                                            @php
-                                                $right = $contents[$muscle . '_active'] ?? null;
-                                                $left = $contents[$muscle . '_passive'] ?? null;
-                                            @endphp
-                                            @if ($right || $left)
-                                                <tr>
-                                                    <td>{{ str_replace('_', ' ', $muscle) }}</td>
-                                                    <td>{{ $right ?? '-' }}</td>
-                                                    <td>{{ $left ?? '-' }}</td>
-                                                </tr>
-                                            @endif
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        @endif
+                        }
+                        $finalText = '';
+                        if (!empty($sentences2)) {
+                            if (count($sentences2) > 1) {
+                            $text = implode(', ', array_slice($sentences2, 0, -1)) . ', ' . end($sentences2) . '.';
+                            }  elseif (count($sentences2) === 1) {
+                            $text = $sentences2[0] . '.';
+                            }
+                            if (!preg_match('/^the patient/i', $text)) {
+                                $text = 'The patient ' . ltrim($text, ', ');
+                            }
+                            $finalText = ucfirst($text);
+                        }
+                    @endphp
+                    @if(!empty($finalText))
+                    <p class="dynamic-text">{!! $finalText !!}</p>
                     @endif
+                    @elseif($recordata->type === 'shoulder_elbow')
+                    @if ($recordata->type === 'shoulder_elbow' && $title === 'Movements-shoulder')
+                            @php
+                                $muscles = ['Flexion','Extension','Internal_Rotation(IR)','External_Rotation(ER)','Adduction','Abduction'];
+                                // Check if at least one muscle has data
+                                $hasData = false;
+                                
+                                foreach ($muscles as $muscle) {
+                                    if (!empty($contents[$muscle . '_active']) || !empty($contents[$muscle . '_passive'])) {
+                                        $hasData = true;
+                                        break;
+                                    }
+                                }
+                            @endphp
+                            @if ($hasData)
+                                <div class="table-responsive mb-3">
+                                    <table class="table table-bordered table-striped align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Active</th>
+                                                <th>Pasive</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($muscles as $muscle)
+                                                @php
+                                                    $right = $contents[$muscle . '_active'] ?? null;
+                                                    $left = $contents[$muscle . '_passive'] ?? null;
+                                                @endphp
+                                                @if ($right || $left)
+                                                    <tr>
+                                                        <td>{{ str_replace('_', ' ', $muscle) }}</td>
+                                                        <td>{{ $right ?? '-' }}</td>
+                                                        <td>{{ $left ?? '-' }}</td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @endif
+                        @endif
                     @php
                         $templates_shoulder_elbow = [
                             'Chief_Complaint' => 'The Patient presented with <b>:value</b>',
@@ -867,10 +1042,12 @@
                             {!! $finalText !!}
                         </p>
                     @endif
-                    
                 @endif
             </div>
         @endforeach
+        <div class="signature-content">
+           <span><strong>{{ $recordata->consultant }}</strong></span> 
+        </div>
     </div>
 </body>
 </html>
